@@ -1,0 +1,15 @@
+.app-footer {
+    min-height: 100px;
+    background-color: #181818;
+    padding-left: 30px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    align-content: center;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 70px;
+  }
+  
