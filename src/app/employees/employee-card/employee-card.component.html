@@ -1,1 +1,55 @@
-<p>employee-card works!</p>
+<!-- <div class="profile-card-box-header">
+    <img [src]="employee.profileAvatarUrlPath" class="avatar" alt="Employee Avatar" />
+    <div class="header-details">
+        <div id="employee-experience-level" class="exp-level-label">
+            <span class="exp-level-text" *ngIf="employee.experienceLevel === 'Intern'">🎓 INTERN</span>
+            <span class="exp-level-text" *ngIf="employee.experienceLevel === 'Junior'">⭐ JUNIOR</span>
+            <span class="exp-level-text" *ngIf="employee.experienceLevel === 'Mid'">⭐⭐ MID</span>
+            <span class="exp-level-text" *ngIf="employee.experienceLevel === 'Senior'">⭐⭐⭐ SENIOR</span>
+            <span class="exp-level-text" *ngIf="employee.experienceLevel === 'Architect'">⭐⭐⭐⭐ARCHITECT</span>
+            <span *ngIf="employee.verifiedExperienceLevel">
+                <img src="../../../../assets/images/icons/verified-badge-vector.svg" class="verified-badge"
+                    alt="Verified Experience Level" />
+            </span>
+        </div>
+
+        <div id="employee-names" class="card-box-title">
+            {{ employee.firstName }} {{ employee.lastName }}
+        </div>
+    </div>
+</div>
+
+<div class="profile-card-box-body">
+    <div class="profile-card-left">
+
+        <div id="employee-start-date" class="card-box-text">
+            <span style="font-weight: 500;">Start Date:</span> {{ employee.startDate | date: 'MMMM yyyy'
+            }}
+        </div>
+        <div id="employee-team" class="card-box-text">
+            <span style="font-weight: 500;">Team:</span> {{ employee.team }}
+        </div>
+        <div id="current-salary" class="card-box-text">
+            <span style="font-weight: 500;">Current Salary:</span> {{ employee.salary }} US$
+        </div>
+        <div id="last-salary-increase" class="card-box-text">
+            <span style="font-weight: 500;">Last Raise:</span> {{ employee.salaryLastRaise | date: 'MMMM
+            yyyy' }}
+        </div>
+        <div id="employee-insurance" class="card-box-text">
+            <span style="font-weight: 500;">Medical Insurance:</span> {{ employee.medicalInsurance ?
+            'Yes' : 'No' }}
+        </div>
+        <div id="employee-paid-leave" class="card-box-text">
+            <span style="font-weight: 500;">Paid Leave:</span> {{ employee.paidLeave }}
+        </div>
+    </div>
+
+    <div class="profile-card-right">
+        <img src="../../../../assets/images/icons/edit-employee.png" alt="Edit Employee" class="card-icon"
+            (click)="editEmployee(employee)" />
+
+        <img src="../../../../assets/images/icons/delete-employee.png" alt="Delete Employee" class="card-icon"
+            (click)="prepareForDelete(employee)" />
+    </div>
+</div> -->

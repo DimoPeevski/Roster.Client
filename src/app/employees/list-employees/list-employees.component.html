@@ -1,1 +1,20 @@
-<p>list-employees works!</p>
+<div class="body-container">
+    <h2 class="component-title">Employee List</h2>
+
+    <ul class="employee-list">
+        <li *ngFor="let employee of employees" class="profile-card">
+            <app-employee-card></app-employee-card>
+        </li>
+    </ul>
+
+    <div class="export-files">
+        <span>
+            Export in:
+            <a href="#">Excel</a>, <a href="#">PDF</a>, <a href="#">Word</a>
+        </span>
+    </div>
+
+    <app-edit-employee></app-edit-employee>
+    <app-delete-employee></app-delete-employee>
+    <app-add-employee></app-add-employee>
+</div>

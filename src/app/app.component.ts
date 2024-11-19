@@ -10,7 +10,6 @@ import { MainComponent } from './main/main.component';
   imports: [
     RouterOutlet, 
     HeaderComponent, 
-    MainComponent, 
     FooterComponent
   ],
   templateUrl: './app.component.html',
