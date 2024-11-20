@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-th, td {
+th,
+td {
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -26,3 +27,19 @@ a {
   color: #181818;
 }
 
+.body-container {
+  margin: 0 auto;
+  max-width: 1440px;
+  border: solid 1px #e1e1e1;
+  border-radius: 12px;
+  min-height: 70vh;
+  padding: 20px;
+}
+
+.component-title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+}

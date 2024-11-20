@@ -6,11 +6,11 @@ import { AddEmployeeComponent } from './employees/add-employee/add-employee.comp
 import { EditEmployeeComponent } from './employees/edit-employee/edit-employee.component';
 import { DeleteEmployeeComponent } from './employees/delete-employee/delete-employee.component';
 import { ErrorComponent } from './error/error.component';
-import { MainComponent } from './main/main.component';
+import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo:'home', pathMatch: 'full' },
-  { path: 'home', component: MainComponent },
+  { path: '', redirectTo:'', pathMatch: 'full' },
+  { path: '', component: ListEmployeesComponent },
 
   //Start - User routing
   { path: 'login', component: LoginComponent },
@@ -19,7 +19,7 @@ export const routes: Routes = [
   //End- User routing
 
   //Start - Employee and manager routing
-  { path: 'add-manager', component: AddEmployeeComponent },
+  { path: 'add-manager', component: ErrorComponent },
   { path: 'add-employee', component: AddEmployeeComponent },
   { path: 'edit-employee', component: EditEmployeeComponent },
   { path: 'delete-employee', component: DeleteEmployeeComponent },
