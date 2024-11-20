@@ -7,15 +7,17 @@ import { EditEmployeeComponent } from './employees/edit-employee/edit-employee.c
 import { DeleteEmployeeComponent } from './employees/delete-employee/delete-employee.component';
 import { ErrorComponent } from './error/error.component';
 import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
+import { ProfileComponent } from './user/profile/profile.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo:'', pathMatch: 'full' },
+  { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: ListEmployeesComponent },
 
   //Start - User routing
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent },
+  { path: 'profile', component: ProfileComponent },
   //End- User routing
 
   //Start - Employee and manager routing
