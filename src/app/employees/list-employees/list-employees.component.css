@@ -4,89 +4,40 @@
   justify-content: flex-start;
   padding: 0;
   list-style-type: none;
+  gap: 20px;
+  justify-content: space-between;
 }
 
 .profile-card {
   background-color: #fff;
   border-radius: 12px;
   padding: 20px;
-  margin: 20px;
   box-shadow: 0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.13),
     0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.11);
-  width: 319px;
+  min-width: 300px;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
+  flex-basis: 300px;
+  box-sizing: border-box;
 }
 
-.profile-card-box-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 20px;
+@media screen and (min-width: 900px) {
+  .profile-card {
+    width: 30%;
+  }
 }
 
-.avatar {
-  border-radius: 50%;
-  height: 60px;
-  width: 60px;
-  margin-right: 20px;
+@media screen and (max-width: 900px) {
+  .profile-card {
+    width: 48%;
+  }
 }
 
-.header-details {
-  display: flex;
-  flex-direction: column;
-}
-
-.exp-level-label {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  font-size: 11px;
-  font-weight: bold;
-  margin-bottom: 7px;
-  color: #6b5f00;
-}
-
-.verified-badge {
-  width: 23px;
-  margin-left: 10px;
-}
-
-.card-box-title {
-  font-size: 20px;
-  font-weight: 500;
-}
-
-.profile-card-box-body {
-  display: flex;
-  flex-direction: row;
-}
-
-.profile-card-left {
-  display: flex;
-  flex-direction: column;
-  width: 240px;
-}
-
-.profile-card-right {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  width: 50px;
-}
-
-.card-box-text {
-  margin: 2px 0;
-  font-size: 14px;
-}
-
-.card-icon {
-  width: 50%;
-  transition: width 200ms;
-  cursor: pointer;
-}
-
-.card-icon:hover {
-  width: 55%;
+@media screen and (max-width: 600px) {
+  .profile-card {
+    width: 98%;
+  }
 }
 
 .export-files {
