@@ -4,7 +4,7 @@
     <ul class="employee-list">
         @for (employee of employees; track $index) {
         <li class="profile-card">
-            <app-employee-card />
+            <app-employee-card [employee]="employee" />
         </li>
         }
     </ul>

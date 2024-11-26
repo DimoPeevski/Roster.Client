@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Employee } from '../../models/employee';
 
 @Component({
@@ -9,7 +9,7 @@ import { Employee } from '../../models/employee';
   styleUrl: './employee-card.component.css',
 })
 export class EmployeeCardComponent {
-  employee: Employee = {
+  @Input() employee: Employee = {
     id: '',
     firstName: 'John',
     lastName: 'Doe',
