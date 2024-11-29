@@ -26,10 +26,10 @@ export class EmployeeCardComponent {
   };
 
   prepareForEditEmployee() {
-    //
+    console.log('I will edit');
   }
 
   prepareForDeleteEmployee() {
-    //
+    console.log('I will delete');
   }
 }
