@@ -21,12 +21,12 @@
 
                     @if (inputEmail?.touched) {
                     <div>
-                        @if (inputEmail?.errors?.['required']) {
+                        @if (inputEmail?.hasError('required')) {
                         <p class="validation-error">
                             Email is required!
                         </p>
                         }
-                        @if (inputEmail?.errors?.['emailValidator']) {
+                        @if (inputEmail?.hasError('emailValidator')) {
                         <p class="validation-error">
                             Email is invalid!
                         </p>
