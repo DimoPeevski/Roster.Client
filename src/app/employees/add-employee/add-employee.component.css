@@ -16,7 +16,7 @@
   align-items: center;
   background-color: #ffffff;
   width: 1100px;
-  height: 550px;
+  min-height: 500px;
   border: solid 1px #e1e1e1;
   border-radius: 12px;
 }
