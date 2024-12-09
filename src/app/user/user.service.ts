@@ -1,21 +1,18 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
-
   get isLogged(): boolean {
     return true;
   }
 
-  constructor() { 
+  constructor() {
     try {
-
-    } 
-    catch (error) {
-      
-    }
+    } catch (error) {}
   }
-}
 
+  login() {}
+  addManager() {}
+}

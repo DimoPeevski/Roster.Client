@@ -15,13 +15,12 @@ export const routes: Routes = [
 
   //Start - User routing
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'profile', component: ProfileComponent },
   //End- User routing
 
   //Start - Employee and manager routing
-  { path: 'add-manager', component: ErrorComponent },
+  { path: 'add-manager', component: RegisterComponent },
   { path: 'add-employee', component: AddEmployeeComponent },
   { path: 'edit-employee', component: EditEmployeeComponent },
   { path: 'delete-employee', component: DeleteEmployeeComponent },

@@ -1,0 +1,117 @@
+.box-extender {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 25px;
+  padding-top: 50px;
+}
+
+.login-container {
+  min-width: 100%;
+  padding: 10px 70px 70px 70px;
+}
+
+.inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  width: 550px;
+  height: 450px;
+  border: solid 1px #e1e1e1;
+  border-radius: 12px;
+}
+
+.form-title {
+  margin-left: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.button-main.disabled {
+  background-color: #858585;
+  cursor: not-allowed;
+}
+
+.button-main.disabled:hover {
+  background-color: #858585;
+  cursor: not-allowed;
+}
+
+.custom-form-floating {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.custom-input {
+  width: 100%;
+  padding: 0.8rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  background-color: #fdfdfd;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-input:focus {
+  box-shadow: 0 0 10px 0.1rem rgba(0, 109, 49, 0.28);
+}
+
+.custom-input:focus + .custom-label,
+.custom-input:not(:placeholder-shown) + .custom-label {
+  transform: scale(0.9) translateY(-1.2rem);
+}
+
+.custom-input.ng-invalid.ng-touched {
+  box-shadow: 0 0 10px 0.1rem rgba(255, 0, 0, 0.28);
+  border-color: rgba(255, 0, 0, 0.28);
+}
+
+.custom-label {
+  position: absolute;
+  top: 0.9rem;
+  left: 0.5rem;
+  font-size: 1rem;
+  color: #aaa;
+  transition: transform 0.3s ease, color 0.3s ease;
+  pointer-events: none;
+}
+
+.custom-input::placeholder {
+  color: transparent;
+}
+
+.button-main {
+  display: block;
+  width: 100%;
+  padding: 0.8rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #108a00;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-main:hover {
+  background-color: #00aa27;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+p.validation-error {
+  margin-top: 7px;
+  color: rgba(255, 0, 0, 0.75);
+  font-size: 12px;
+}

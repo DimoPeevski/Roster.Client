@@ -1,5 +1,71 @@
-<div class="body-container">
-    <h2 class="component-title">Add Employee</h2>
+<div class="body-container box-extender">
+    <div class="inner-wrapper">
+        <h2 class="component-title">Add Employee</h2>
+        <div class="login-container">
 
-    <p>Hello from Add-Employee component!</p>
+            <form class="add-employee-form">
+                <div class="custom-form-floating">
+                    <label for="firstName">First Name:</label>
+                    <input class="custom-input" id="firstName" name="firstName" required minlength="2"
+                        #employeeFirstName />
+
+                    <label for="lastName">Last Name:</label>
+                    <input class="custom-input" id="lastName" name="lastName" required minlength="2"
+                        #employeeLastName />
+                </div>
+
+                <div class="form-group custom-form-floating">
+                    <label for="team">Team:</label>
+                    <input class="custom-input" id="team" name="team" required #employeeTeam>
+
+                    <label for="salary">Current Salary:</label>
+                    <input class="custom-input" type="number" id="salary" name="salary" required #employeeSalary>
+
+                    <label for="verifiedExperienceLevel">Verified Skills:</label>
+                    <select class="custom-input" id="verifiedExperienceLevel" name="verifiedExperienceLevel" required
+                        #employeeVerifiedExperienceLevel>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group custom-form-floating">
+                    <label for="salaryLastRaise">Last Salary Raise:</label>
+                    <input class="custom-input" type="date" id="salaryLastRaise" name="salaryLastRaise" required
+                        #employeeSalaryLastRaise>
+
+                    <label for="paidLeave">Paid Leave (days):</label>
+                    <input class="custom-input" type="number" id="paidLeave" name="paidLeave" required min="0" max="365"
+                        #employeePaidLeave=>
+
+                    <label for="medicalInsurance">Medical Insurance:</label>
+                    <select class="custom-input" id="medicalInsurance" name="medicalInsurance" required
+                        #employeeMedicalInsurance>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+
+                <div class="custom-form-floating">
+                    <label for="experienceLevel">Experience Level:</label>
+                    <select class="custom-input" id="experienceLevel" name="experienceLevel" required
+                        #employeeExperienceLevel>
+                        <option value="Intern">Intern</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Mid">Mid</option>
+                        <option value="Senior">Senior</option>
+                        <option value="Architect">Architect</option>
+                    </select>
+
+                    <label for="startDate">Start Date:</label>
+                    <input class="custom-input" type="date" id="startDate" name="startDate" required #employeeStartDate>
+                </div>
+
+                <div class="add-buttons">
+                    <button class="button-clean" type="button">Cancel</button>
+                    <button class="button-main" type="submit">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
