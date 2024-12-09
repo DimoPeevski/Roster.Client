@@ -37,6 +37,10 @@
   font-weight: 500;
 }
 
+p.form-text {
+  margin-bottom: 50px;
+}
+
 .button-main {
   width: 40%;
   margin: 15px;
