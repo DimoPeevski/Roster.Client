@@ -1,5 +1,22 @@
-<div class="body-container">
-    <h2 class="component-title">Logout</h2>
+<div class="body-container box-extender">
 
-    <p>Hello from Logout component!</p>
+    <div class="inner-wrapper">
+        <div class="inner-header">
+
+            <img src="https://cdn.peevski.net/images/roster/login-icon.png" alt="Login to Roster" width="48px"
+                height="48px">
+            <h2 class="form-title">Logout</h2>
+
+        </div>
+
+        <div class="logout-container">
+            <p>
+                You are about to terminate your session. Are you sure you want to log out?
+            </p>
+            <div class="buttons">
+                <button class="button-clean" (click)="cancelLogout()">Cancel</button>
+                <button class="button-main" (click)="logout()">Logout</button>
+            </div>
+        </div>
+    </div>
 </div>
