@@ -5,6 +5,8 @@
         <img class="logo-container" src="https://cdn.peevski.net/images/roster/roster-logo-header.png" alt="Logo" />
       </a>
     </div>
+
+    @if (isLoggedIn) {
     <div class="header-nav">
       <div class="header-buttons">
         <a class="btn btn-primary button-clean" routerLink="/add-manager">Add Manager</a>
@@ -19,5 +21,7 @@
         </div>
       </div>
     </div>
+    }
+
   </section>
 </header>

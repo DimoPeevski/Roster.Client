@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeCardComponent } from '../employee-card/employee-card.component';
 import { Employee } from '../../models/employee';
 import { EmployeeService } from '../employee.service';
+import { UserService } from '../../user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-employees',
@@ -12,11 +14,22 @@ import { EmployeeService } from '../employee.service';
 })
 export class ListEmployeesComponent implements OnInit {
   employees: Employee[] = [];
+  get isLoggedIn(): boolean {
+    return this.userService.isLogged;
+  }
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private userService: UserService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.getAllEmployees();
+    if (!this.isLoggedIn) {
+      this.router.navigate(['/login']);
+    } else {
+      this.getAllEmployees();
+    }
   }
 
   getAllEmployees(): void {

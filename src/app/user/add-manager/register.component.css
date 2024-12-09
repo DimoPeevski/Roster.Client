@@ -70,7 +70,7 @@
 
 .custom-input:focus + .custom-label,
 .custom-input:not(:placeholder-shown) + .custom-label {
-  transform: scale(0.9) translateY(-1.2rem);
+  transform: scale(0.8) translateY(-1.3rem);
 }
 
 .custom-input.ng-invalid.ng-touched {

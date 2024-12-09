@@ -49,7 +49,7 @@
                             Password is required!
                         </p>
                         }
-                        @if (inputPassword?.errors?.[('minlength')]) {
+                        @if (inputPassword?.hasError?.('minlength')) {
                         <p class="validation-error">
                             Password must be at least 6 characters long.
                         </p>
