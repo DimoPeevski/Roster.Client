@@ -35,7 +35,6 @@ export class EmployeeService {
   }
 
   setSelectedEmployee(employee: Employee): void {
-    console.log('Setting employee in localStorage:', employee);
     this.selectedEmployeeSubject.next(employee);
     localStorage.setItem('selectedEmployee', JSON.stringify(employee));
   }

@@ -20,11 +20,8 @@ export class EmployeeCardComponent {
   ) {}
 
   editEmployee() {
-    this.employeeService.editEmployee(this.employee).subscribe(() => {
-      this.router.navigate(['/edit-employee'], {
-        state: { employee: this.employee },
-      });
-    });
+    this.employeeService.setSelectedEmployee(this.employee);
+    this.router.navigate(['/edit-employee']);
   }
 
   deleteEmployee() {
