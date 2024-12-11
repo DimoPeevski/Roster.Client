@@ -32,7 +32,7 @@
 <div class="profile-card-box-body">
     <div class="profile-card-left">
         <div id="employee-start-date" class="card-box-text">
-            <span class="card-entity">Start Date:</span> {{ employee.startDate }}
+            <span class="card-entity">Start Date:</span> {{ employee.startDate | date:'dd MMM yyyy'}}
         </div>
         <div id="employee-team" class="card-box-text">
             <span class="card-entity">Team:</span> {{ employee.team }}
@@ -41,13 +41,13 @@
             <span class="card-entity">Current Salary:</span> {{ employee.salary }} US$
         </div>
         <div id="last-salary-increase" class="card-box-text">
-            <span class="card-entity">Last Raise:</span> {{ employee.salaryLastRaise }}
+            <span class="card-entity">Last Raise:</span> {{ employee.salaryLastRaise | date:'MMM yyyy'}}
         </div>
         <div id="employee-insurance" class="card-box-text">
             <span class="card-entity">Medical Insurance:</span> {{ employee.medicalInsurance ? 'Yes' : 'No' }}
         </div>
         <div id="employee-paid-leave" class="card-box-text">
-            <span class="card-entity">Paid Leave:</span> {{ employee.paidLeave }}
+            <span class="card-entity">Paid Leave:</span> {{ employee.paidLeave }} days
         </div>
     </div>
 

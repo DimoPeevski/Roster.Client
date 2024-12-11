@@ -1,10 +1,12 @@
 import { Component, Input } from '@angular/core';
 import { Employee } from '../../models/employee';
+import { DatePipe } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-employee-card',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './employee-card.component.html',
   styleUrl: './employee-card.component.css',
 })
@@ -25,11 +27,13 @@ export class EmployeeCardComponent {
       'https://cdn.peevski.net/images/roster/avatar-default.jpg',
   };
 
+  constructor(private router: Router) {}
+
   prepareForEditEmployee() {
-    console.log('I will edit');
+    this.router.navigate(['/edit-employee']);
   }
 
   prepareForDeleteEmployee() {
-    console.log('I will delete');
+    this.router.navigate(['/delete-employee']);
   }
 }

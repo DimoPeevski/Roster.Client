@@ -24,15 +24,15 @@
                     <label for="verifiedExperienceLevel">Verified Skills:</label>
                     <select class="custom-input" id="verifiedExperienceLevel" name="verifiedExperienceLevel" required
                         #employeeVerifiedExperienceLevel>
-                        <option value="true">Yes</option>
                         <option value="false">No</option>
+                        <option value="true">Yes</option>
                     </select>
                 </div>
 
                 <div class="form-group custom-form-floating">
                     <label for="salaryLastRaise">Last Salary Raise:</label>
                     <input class="custom-input" type="date" id="salaryLastRaise" name="salaryLastRaise" required
-                        #employeeSalaryLastRaise>
+                        [value]="today" #employeeSalaryLastRaise>
 
                     <label for="paidLeave">Paid Leave (days):</label>
                     <input class="custom-input" type="number" id="paidLeave" name="paidLeave" required min="0" max="365"
@@ -58,7 +58,8 @@
                     </select>
 
                     <label for="startDate">Start Date:</label>
-                    <input class="custom-input" type="date" id="startDate" name="startDate" required #employeeStartDate>
+                    <input class="custom-input" type="date" id="startDate" name="startDate" required [value]="today"
+                        #employeeStartDate>
                 </div>
 
                 <div class="add-buttons">
