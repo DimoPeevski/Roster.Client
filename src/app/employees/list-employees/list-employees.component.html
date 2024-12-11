@@ -9,6 +9,10 @@
         }
     </ul>
 
+    @if(showDeleteConfirmModal) {
+    <app-delete-employee [employee]!="selectedEmployee" />
+    }
+
     <div class="export-files">
         <span>
             Export in:

@@ -2,28 +2,28 @@
     <div class="inner-wrapper">
         <h2 class="component-title">Add Employee</h2>
         <div class="login-container">
-
-            <form class="add-employee-form">
+            <form class="add-employee-form" #form="ngForm" (ngSubmit)="addEmployee(form)">
                 <div class="custom-form-floating">
                     <label for="firstName">First Name:</label>
-                    <input class="custom-input" id="firstName" name="firstName" required minlength="2"
-                        #employeeFirstName />
+                    <input class="custom-input" id="firstName" name="firstName" [(ngModel)]="employee.firstName"
+                        required minlength="2" />
 
                     <label for="lastName">Last Name:</label>
-                    <input class="custom-input" id="lastName" name="lastName" required minlength="2"
-                        #employeeLastName />
+                    <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="employee.lastName" required
+                        minlength="2" />
                 </div>
 
                 <div class="form-group custom-form-floating">
                     <label for="team">Team:</label>
-                    <input class="custom-input" id="team" name="team" required #employeeTeam>
+                    <input class="custom-input" id="team" name="team" [(ngModel)]="employee.team" required />
 
                     <label for="salary">Current Salary:</label>
-                    <input class="custom-input" type="number" id="salary" name="salary" required #employeeSalary>
+                    <input class="custom-input" type="number" id="salary" name="salary" [(ngModel)]="employee.salary"
+                        required />
 
                     <label for="verifiedExperienceLevel">Verified Skills:</label>
-                    <select class="custom-input" id="verifiedExperienceLevel" name="verifiedExperienceLevel" required
-                        #employeeVerifiedExperienceLevel>
+                    <select class="custom-input" id="verifiedExperienceLevel" name="verifiedExperienceLevel"
+                        [(ngModel)]="employee.verifiedExperienceLevel" required>
                         <option value="false">No</option>
                         <option value="true">Yes</option>
                     </select>
@@ -31,16 +31,16 @@
 
                 <div class="form-group custom-form-floating">
                     <label for="salaryLastRaise">Last Salary Raise:</label>
-                    <input class="custom-input" type="date" id="salaryLastRaise" name="salaryLastRaise" required
-                        [value]="today" #employeeSalaryLastRaise>
+                    <input class="custom-input" type="date" id="salaryLastRaise" name="salaryLastRaise"
+                        [(ngModel)]="employee.salaryLastRaise" required [value]="today" />
 
                     <label for="paidLeave">Paid Leave (days):</label>
-                    <input class="custom-input" type="number" id="paidLeave" name="paidLeave" required min="0" max="365"
-                        #employeePaidLeave=>
+                    <input class="custom-input" type="number" id="paidLeave" name="paidLeave"
+                        [(ngModel)]="employee.paidLeave" required min="0" max="365" value="22" />
 
                     <label for="medicalInsurance">Medical Insurance:</label>
-                    <select class="custom-input" id="medicalInsurance" name="medicalInsurance" required
-                        #employeeMedicalInsurance>
+                    <select class="custom-input" id="medicalInsurance" name="medicalInsurance"
+                        [(ngModel)]="employee.medicalInsurance" required>
                         <option value="true">Yes</option>
                         <option value="false">No</option>
                     </select>
@@ -48,8 +48,8 @@
 
                 <div class="custom-form-floating">
                     <label for="experienceLevel">Experience Level:</label>
-                    <select class="custom-input" id="experienceLevel" name="experienceLevel" required
-                        #employeeExperienceLevel>
+                    <select class="custom-input" id="experienceLevel" name="experienceLevel"
+                        [(ngModel)]="employee.experienceLevel" required>
                         <option value="Intern">Intern</option>
                         <option value="Junior">Junior</option>
                         <option value="Mid">Mid</option>
@@ -58,13 +58,19 @@
                     </select>
 
                     <label for="startDate">Start Date:</label>
-                    <input class="custom-input" type="date" id="startDate" name="startDate" required [value]="today"
-                        #employeeStartDate>
+                    <input class="custom-input" type="date" id="startDate" name="startDate"
+                        [(ngModel)]="employee.startDate" required [value]="today" />
                 </div>
 
                 <div class="add-buttons">
-                    <button class="button-clean" type="button">Cancel</button>
-                    <button class="button-main" type="submit">Create</button>
+
+                    <button class="button-clean" (click)="cancelAddEmployee()">
+                        Cancel
+                    </button>
+                    <button class="button-main" [disabled]="form.invalid" [ngClass]="{ 'disabled': form.invalid }">
+                        Create
+                    </button>
+
                 </div>
             </form>
         </div>

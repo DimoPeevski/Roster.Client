@@ -35,7 +35,11 @@ export class UserService {
       .subscribe({
         next: () => {
           this.user = null;
+          this.user$$.next(null);
           console.log('Logout successful.');
+        },
+        error: (err) => {
+          console.error('Logout error:', err);
         },
       });
   }

@@ -1,5 +1,10 @@
-<div class="body-container">
-    <h2 class="component-title">Delete Employee</h2>
+<div class="delete-employee-modal">
 
-    <p>Hello from Delete-Employee component!</p>
+    <div *ngIf="employee">
+        <h2>Delete Employee</h2>
+        <p>Are you sure you want to delete {{ employee.firstName }} {{ employee.lastName }}?</p>
+        <button (click)="onDelete()">Delete</button>
+        <button (click)="onCancel()">Cancel</button>
+    </div>
+
 </div>

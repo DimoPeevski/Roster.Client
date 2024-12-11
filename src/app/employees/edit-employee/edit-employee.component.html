@@ -1,5 +1,81 @@
-<div class="body-container">
-    <h2 class="component-title">Edit Employee</h2>
+<div class="body-container box-extender">
+    <div class="inner-wrapper">
+        <h2 class="component-title">Edit Employee</h2>
+        <div class="login-container">
 
-    <p>Hello from Edit-Employee component!</p>
+            @if(employee) {
+            <form class="add-employee-form" #editEmployeeForm="ngForm" (ngSubmit)="editEmployee(editEmployeeForm)">
+                <div class="custom-form-floating">
+                    <label for="firstName">First Name:</label>
+                    <input class="custom-input" id="firstName" name="firstName" [(ngModel)]="employee.firstName"
+                        minlength="2" required aria-label="First Name" />
+
+                    <label for="lastName">Last Name:</label>
+                    <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="employee.lastName"
+                        minlength="2" required aria-label="Last Name" />
+
+                </div>
+
+                <div class="form-group custom-form-floating">
+                    <label for="team">Team:</label>
+                    <input class="custom-input" id="team" name="team" [(ngModel)]="employee.team" required
+                        aria-label="Team" />
+
+                    <label for="salary">Current Salary:</label>
+                    <input class="custom-input" type="number" id="salary" name="salary" [(ngModel)]="employee.salary"
+                        required aria-label="Current Salary" />
+
+                    <label for="verifiedExperienceLevel">Verified Skills:</label>
+                    <select class="custom-input" id="verifiedExperienceLevel" name="verifiedExperienceLevel"
+                        [(ngModel)]="employee.verifiedExperienceLevel" required aria-label="Verified Skills">
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group custom-form-floating">
+                    <label for="salaryLastRaise">Last Salary Raise:</label>
+                    <input class="custom-input" type="date" id="salaryLastRaise" name="salaryLastRaise"
+                        [(ngModel)]="employee.salaryLastRaise" required aria-label="Last Salary Raise" />
+
+                    <label for="paidLeave">Paid Leave (days):</label>
+                    <input class="custom-input" type="number" id="paidLeave" name="paidLeave"
+                        [(ngModel)]="employee.paidLeave" min="0" max="365" required aria-label="Paid Leave" />
+
+                    <label for="medicalInsurance">Medical Insurance:</label>
+                    <select class="custom-input" id="medicalInsurance" name="medicalInsurance"
+                        [(ngModel)]="employee.medicalInsurance" required aria-label="Medical Insurance">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+
+                <div class="custom-form-floating">
+                    <label for="experienceLevel">Experience Level:</label>
+                    <select class="custom-input" id="experienceLevel" name="experienceLevel"
+                        [(ngModel)]="employee.experienceLevel" required aria-label="Experience Level">
+                        <option value="Intern">Intern</option>
+                        <option value="Junior">Junior</option>
+                        <option value="Mid">Mid</option>
+                        <option value="Senior">Senior</option>
+                        <option value="Architect">Architect</option>
+                    </select>
+
+                    <label for="startDate">Start Date:</label>
+                    <input class="custom-input" type="date" id="startDate" name="startDate"
+                        [(ngModel)]="employee.startDate" required aria-label="Start Date" />
+                </div>
+
+                <div class="add-buttons">
+                    <button class="button-clean" type="button" (click)="cancelEditEmployee()">Cancel</button>
+                    <button class="button-main" [disabled]="editEmployeeForm.invalid"
+                        [ngClass]="{ 'disabled': editEmployeeForm.invalid }">
+                        Save Changes
+                    </button>
+                </div>
+            </form>
+            }
+
+        </div>
+    </div>
 </div>
