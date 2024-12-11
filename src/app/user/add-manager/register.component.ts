@@ -21,7 +21,10 @@ export class RegisterComponent {
       return;
     }
 
-    this.userService.addManager();
-    this.router.navigate(['/']);
+    const { email, password, rePassword } = form.value;
+
+    this.userService.addManager(email, password, rePassword).subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 }

@@ -14,7 +14,7 @@ export class LogoutComponent {
 
   logout() {
     this.userServer.logout();
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 
   cancelLogout() {
