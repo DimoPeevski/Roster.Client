@@ -5,11 +5,13 @@ import { EmployeeService } from '../employee.service';
 import { UserService } from '../../user/user.service';
 import { Router } from '@angular/router';
 import { DeleteEmployeeComponent } from '../delete-employee/delete-employee.component';
+import { EmployeeModalService } from '../employee-modal-service.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list-employees',
   standalone: true,
-  imports: [EmployeeCardComponent, DeleteEmployeeComponent],
+  imports: [EmployeeCardComponent, DeleteEmployeeComponent, CommonModule],
   templateUrl: './list-employees.component.html',
   styleUrls: ['./list-employees.component.css'],
 })
@@ -26,7 +28,8 @@ export class ListEmployeesComponent implements OnInit {
   constructor(
     private employeeService: EmployeeService,
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private employeeModalService: EmployeeModalService
   ) {}
 
   ngOnInit(): void {
@@ -35,6 +38,10 @@ export class ListEmployeesComponent implements OnInit {
     } else {
       this.getAllEmployees();
     }
+
+    this.employeeModalService.modalState$.subscribe((state) => {
+      this.showDeleteConfirmModal = state;
+    });
   }
 
   getAllEmployees(): void {

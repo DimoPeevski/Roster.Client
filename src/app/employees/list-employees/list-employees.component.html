@@ -1,7 +1,7 @@
-<div class="body-container">
+<div class="body-container ">
     <h2 class="component-title">Employee List</h2>
 
-    <ul class="employee-list">
+    <ul class="employee-list" [ngClass]="{'blur-background': showDeleteConfirmModal}">
         @for (employee of employees; track $index) {
         <li class="profile-card">
             <app-employee-card [employee]="employee" />
@@ -10,7 +10,7 @@
     </ul>
 
     @if(showDeleteConfirmModal) {
-    <app-delete-employee [employee]!="selectedEmployee" />
+    <app-delete-employee />
     }
 
     <div class="export-files">

@@ -1,10 +1,17 @@
 <div class="delete-employee-modal">
+    <div class="modal-content">
 
-    <div *ngIf="employee">
-        <h2>Delete Employee</h2>
-        <p>Are you sure you want to delete {{ employee.firstName }} {{ employee.lastName }}?</p>
-        <button (click)="onDelete()">Delete</button>
-        <button (click)="onCancel()">Cancel</button>
+        <h3 class="modal-title">Confirm Delete</h3>
+
+        <p>Are you sure you want to delete <strong>{{ employee!.firstName }} {{ employee!.lastName }}?</strong></p>
+        <br />
+        <p>This action cannot be undone. Deleting this employee will permanently remove their record from the system.
+        </p>
+
+        <div class="delete-buttons">
+            <button class="button-clean" (click)="cancelDeleteEmployee()">Cancel</button>
+            <button class="button-main" (click)="deleteEmployee()">Delete</button>
+        </div>
+
     </div>
-
 </div>

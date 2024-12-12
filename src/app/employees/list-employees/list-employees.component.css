@@ -51,3 +51,8 @@
   text-decoration: none;
   color: #030303;
 }
+
+.blur-background {
+  filter: blur(2.2px);
+  pointer-events: none;
+}

@@ -3,6 +3,7 @@ import { Employee } from '../../models/employee';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { EmployeeService } from '../employee.service';
+import { EmployeeModalService } from '../employee-modal-service.service';
 
 @Component({
   selector: 'app-employee-card',
@@ -16,7 +17,8 @@ export class EmployeeCardComponent {
 
   constructor(
     private router: Router,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private employeeModalService: EmployeeModalService
   ) {}
 
   editEmployee() {
@@ -25,6 +27,7 @@ export class EmployeeCardComponent {
   }
 
   deleteEmployee() {
-    //
+    this.employeeService.setSelectedEmployee(this.employee);
+    this.employeeModalService.openDeleteModal();
   }
 }
