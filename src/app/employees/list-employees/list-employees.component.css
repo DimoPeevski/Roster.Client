@@ -53,6 +53,6 @@
 }
 
 .blur-background {
-  filter: blur(2.2px);
+  filter: blur(3px);
   pointer-events: none;
 }
