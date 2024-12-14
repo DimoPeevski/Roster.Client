@@ -1,7 +1,7 @@
 <div class="body-container box-extender">
     <div class="inner-wrapper">
         <h2 class="component-title">My Profile</h2>
-        <div class="login-container">
+        <div class="card-container">
 
             <div class="profile-card-left">
                 <img [src]="userProfile?.profilePictureUrl" class="avatar" alt="Manager Avatar" />
@@ -9,10 +9,10 @@
 
             <div class="profile-card-right">
                 <div id="employee-experience-level" class="exp-level-label">
-                    @if(role === 'Unknown Ghost') {
-                    <span class="exp-level-text">🎓 MANAGER</span>
-                    } @else if(role === 'Admin') {
-                    <span class="exp-level-text">🎓 ADMIN</span>
+                    @if(role === 'Manager') {
+                    <span class="exp-level-text">👨🏻‍💼 MANAGER</span>
+                    } @else if(true) {
+                    <span class="exp-level-text">🛡️ ADMIN</span>
                     }
                 </div>
 
@@ -31,13 +31,21 @@
                         <span class="card-entity">Phone Number:</span> {{ userProfile?.phoneNumber }}
                     </div>
                 </div>
+
+                @if(isEditMode) {
+                <div class="add-buttons">
+                    <button class="button-clean">Cancel</button>
+                    <button class="button-main">Save</button>
+                </div>
+                }
+                @else if (!isEditMode) {
+                <div class="add-buttons">
+                    <button class="button-main">Edit</button>
+                </div>
+                }
+
             </div>
-        </div>
 
-        <div class="add-buttons">
-            <button class="button-clean">Cancel</button>
-            <button class="button-main">Save</button>
         </div>
-
     </div>
 </div>

@@ -16,6 +16,7 @@ import { TruncatePipe } from '../../shared/truncate.pipe';
 export class ProfileComponent implements OnInit {
   userProfile: User | null = null;
   role: String | null = null;
+  isEditMode: boolean = true;
 
   constructor(private userService: UserService, private router: Router) {}
 

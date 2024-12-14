@@ -1,25 +1,50 @@
-.avatar {
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
-  margin: 20px;
-}
-
-.box-externder {
+.box-extender {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .inner-wrapper {
-  max-width: 500px;
-  max-height: 250px;
+  width: 1100px;
+  min-height: 600px;
+  border: solid 1px #e1e1e1;
+  border-radius: 12px;
 }
 
-.login-container {
+.card-container {
+  padding: 10px 70px 70px 70px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-color: #ffffff;
+  width: 700px;
+  min-height: 400px;
+  border: solid 1px #e1e1e1;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.13),
+    0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.11);
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.component-title {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+.card-box-title {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#employee-start-date {
+  margin-top: 30px;
 }
 
 .exp-level-label {
@@ -30,14 +55,16 @@
   color: #6b5f00;
 }
 
-.card-box-title {
-  font-size: 32px;
-  font-weight: 500;
+.profile-card-left {
+  display: flex;
+  flex-direction: column;
+  margin-right: 30px;
 }
 
-.profile-card-box-body {
+.profile-card-right {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  margin-left: 30px;
 }
 
 .card-box-text {
@@ -48,19 +75,6 @@
 span.card-entity {
   color: rgb(27, 27, 27);
   font-weight: bold;
-}
-
-.profile-card {
-  background-color: #fff;
-  border-radius: 12px;
-  padding: 20px;
-  box-shadow: 0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.13),
-    0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.11);
-  min-width: 700px;
-  min-height: 350px;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
 }
 
 @media screen and (min-width: 900px) {
@@ -81,9 +95,11 @@ span.card-entity {
   }
 }
 
-.blur-background {
-  filter: blur(3px);
-  pointer-events: none;
+.avatar {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+  margin: 20px;
 }
 
 .add-buttons {
@@ -91,6 +107,7 @@ span.card-entity {
   flex-direction: row;
   justify-content: center;
   width: 100%;
+  margin-top: 20px;
 }
 
 .button-main {
