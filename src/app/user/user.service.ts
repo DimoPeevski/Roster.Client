@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { UserForAuth } from '../models/user';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, tap } from 'rxjs';
+import { User, UserForAuth } from '../models/user';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -50,10 +50,18 @@ export class UserService {
       .pipe(tap((user) => this.user$$.next(user)));
   }
 
+  getProfileCard() {
+    return this.http.get<User>('/api/auth/profile', { withCredentials: false });
+  }
+
   addManager(email: string, password: string, rePassword: string) {
     return this.http
       .post<UserForAuth>('/api/auth/register', { email, password, rePassword })
       .pipe(tap((user) => this.user$$.next(user)));
+  }
+
+  getLoggedUserRole(): Observable<string> {
+    return this.http.get<string>('/api/auth/role', { withCredentials: true });
   }
 
   editManager() {}
