@@ -43,8 +43,12 @@ export class DeleteEmployeeComponent implements OnInit {
 
   deleteEmployee(): void {
     this.employeeService.deleteEmployee(this.employee!.id).subscribe(() => {
-      this.router.navigate(['/']);
       this.employeeModalService.closeDeleteModal();
+      this.router
+        .navigateByUrl('/profile', { skipLocationChange: true })
+        .then(() => {
+          this.router.navigate(['/']);
+        });
     });
   }
 
