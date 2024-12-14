@@ -19,7 +19,6 @@
                 <div id="employee-names" class="card-box-title">
                     {{ userProfile!.firstName | truncate:17 }} {{ userProfile!.lastName | truncate:17 }}
 
-
                     <div id="employee-start-date" class="card-box-text">
                         <span class="card-entity">Register Date: </span>
                         {{ userProfile?.registrationDate| date:'dd MMM yyyy'}}
@@ -32,18 +31,50 @@
                     </div>
                 </div>
 
-                @if(isEditMode) {
-                <div class="add-buttons">
-                    <button class="button-clean">Cancel</button>
-                    <button class="button-main">Save</button>
-                </div>
-                }
-                @else if (!isEditMode) {
-                <div class="add-buttons">
-                    <button class="button-main">Edit</button>
-                </div>
-                }
+                <form class="add-employee-form" #form="ngForm" (ngSubmit)="editProfile(form)">
 
+                    <div class="custom-form-floating">
+                        <label for="firstName">First Name:</label>
+                        <input class="custom-input" id="firstName" name="firstName" [(ngModel)]="userProfile!.firstName"
+                            required minlength="1" />
+                    </div>
+
+                    <div class="custom-form-floating">
+                        <label for="lastName">Last Name:</label>
+                        <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="userProfile!.lastName"
+                            required minlength="1" />
+                    </div>
+
+                    <div class="custom-form-floating">
+                        <label for="registerDate">Register Date:</label>
+                        <input class="custom-input" id="registerDate" type="date" name="registerDate"
+                            [(ngModel)]="userProfile!.registrationDate" required />
+                    </div>
+
+                    <div class="custom-form-floating">
+                        <label for="email">E-mail:</label>
+                        <input class="custom-input" id="email" name="email" [(ngModel)]="userProfile!.email" required />
+                    </div>
+
+                    <div class="custom-form-floating">
+                        <label for="phoneNumber">E-mail:</label>
+                        <input class="custom-input" id="phoneNumber" name="phoneNumber"
+                            [(ngModel)]="userProfile!.phoneNumber" required />
+                    </div>
+
+                    @if(isEditMode) {
+                    <div class="add-buttons">
+                        <button class="button-clean" (click)="cancelEdit()">Cancel</button>
+                        <button class="button-main" [disabled]="form.invalid"
+                            [ngClass]="{ 'disabled': form.invalid }">Save</button>
+                    </div>
+                    }
+                    @else if (!isEditMode) {
+                    <div class="add-buttons">
+                        <button class="button-main" (click)="changeEditMode()">Edit</button>
+                    </div>
+                    }
+                </form>
             </div>
 
         </div>

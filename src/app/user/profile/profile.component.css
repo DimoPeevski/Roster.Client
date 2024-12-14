@@ -19,7 +19,7 @@
   align-items: center;
   background-color: #ffffff;
   width: 700px;
-  min-height: 400px;
+  min-height: 500px;
   border: solid 1px #e1e1e1;
   border-radius: 12px;
   padding: 20px;
@@ -143,4 +143,21 @@ span.card-entity {
 
 .button-clean:hover {
   background-color: #f7f7f7;
+}
+
+.custom-form-floating {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.custom-input {
+  width: 35%;
+  padding: 0.8rem 0.5rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  background-color: #fdfdfd;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }

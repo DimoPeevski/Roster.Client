@@ -16,7 +16,7 @@ import { TruncatePipe } from '../../shared/truncate.pipe';
 export class ProfileComponent implements OnInit {
   userProfile: User | null = null;
   role: String | null = null;
-  isEditMode: boolean = true;
+  isEditMode: boolean = false;
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -45,5 +45,13 @@ export class ProfileComponent implements OnInit {
 
   editProfile(form: NgForm) {
     return;
+  }
+
+  changeEditMode() {
+    this.isEditMode = true;
+  }
+
+  cancelEdit() {
+    this.isEditMode = false;
   }
 }
