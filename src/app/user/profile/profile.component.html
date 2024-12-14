@@ -1,5 +1,43 @@
-<div class="body-container">
-    <h2 class="component-title">My Profile</h2>
+<div class="body-container box-extender">
+    <div class="inner-wrapper">
+        <h2 class="component-title">My Profile</h2>
+        <div class="login-container">
 
-    <p>Hello from Prifile component!</p>
+            <div class="profile-card-left">
+                <img [src]="userProfile?.profilePictureUrl" class="avatar" alt="Manager Avatar" />
+            </div>
+
+            <div class="profile-card-right">
+                <div id="employee-experience-level" class="exp-level-label">
+                    @if(role === 'Unknown Ghost') {
+                    <span class="exp-level-text">🎓 MANAGER</span>
+                    } @else if(role === 'Admin') {
+                    <span class="exp-level-text">🎓 ADMIN</span>
+                    }
+                </div>
+
+                <div id="employee-names" class="card-box-title">
+                    {{ userProfile!.firstName | truncate:17 }} {{ userProfile!.lastName | truncate:17 }}
+
+
+                    <div id="employee-start-date" class="card-box-text">
+                        <span class="card-entity">Register Date: </span>
+                        {{ userProfile?.registrationDate| date:'dd MMM yyyy'}}
+                    </div>
+                    <div id="employee-team" class="card-box-text">
+                        <span class="card-entity">E-mail:</span> {{ userProfile?.email }}
+                    </div>
+                    <div id="current-salary" class="card-box-text">
+                        <span class="card-entity">Phone Number:</span> {{ userProfile?.phoneNumber }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="add-buttons">
+            <button class="button-clean">Cancel</button>
+            <button class="button-main">Save</button>
+        </div>
+
+    </div>
 </div>
