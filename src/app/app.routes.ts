@@ -15,7 +15,7 @@ export const routes: Routes = [
   { path: '', component: ListEmployeesComponent, canActivate: [AuthGuard] },
 
   //Start - User routing
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent, canActivate: [] },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   //End- User routing

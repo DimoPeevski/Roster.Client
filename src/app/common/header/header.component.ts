@@ -9,10 +9,17 @@ import { UserService } from '../../user/user.service';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit {
   get isLoggedIn(): boolean {
     return this.userService.isLogged;
   }
 
+  userRole: string = '';
+
   constructor(private userService: UserService) {}
+  ngOnInit(): void {
+    this.userService.userRole$.subscribe((role) => {
+      this.userRole = role;
+    });
+  }
 }

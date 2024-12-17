@@ -23,7 +23,7 @@
         </div>
 
         <div id="employee-names" class="card-box-title">
-            {{ employee.firstName }} {{ employee.lastName }}
+            {{ employee.firstName | truncate: 18 }} {{ employee.lastName | truncate: 18 }}
         </div>
 
     </div>
@@ -36,6 +36,9 @@
         </div>
         <div id="employee-team" class="card-box-text">
             <span class="card-entity">Team:</span> {{ employee.team }}
+        </div>
+        <div id="employee-email" class="card-box-text">
+            <span class="card-entity">Email:</span> {{ employee.email }} <span class="lock-email">🔒</span>
         </div>
         <div id="current-salary" class="card-box-text">
             <span class="card-entity">Current Salary:</span> {{ employee.salary }} US$

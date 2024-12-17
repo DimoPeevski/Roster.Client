@@ -82,6 +82,7 @@ export class EditEmployeeComponent implements OnInit {
       verifiedExperienceLevel:
         verifiedExperienceLevel === 'true' || verifiedExperienceLevel === true,
       team,
+      email: '',
       startDate: this.formatDateForBackend(startDate),
       salaryLastRaise: this.formatDateForBackend(salaryLastRaise),
       salary,

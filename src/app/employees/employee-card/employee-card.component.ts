@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { EmployeeService } from '../employee.service';
 import { EmployeeModalService } from '../employee-modal-service.service';
+import { TruncatePipe } from '../../shared/truncate.pipe';
 
 @Component({
   selector: 'app-employee-card',
   standalone: true,
-  imports: [DatePipe],
+  imports: [DatePipe, TruncatePipe],
   templateUrl: './employee-card.component.html',
   styleUrls: ['./employee-card.component.css'],
 })

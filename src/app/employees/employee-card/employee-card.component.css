@@ -69,19 +69,11 @@
   width: 55%;
 }
 
-.export-files {
-  margin: 20px;
-  text-align: right;
-  font-weight: 500;
-  font-size: 12px;
-}
-
-.export-files a {
-  text-decoration: none;
-  color: #030303;
-}
-
 span.card-entity {
   color: rgb(27, 27, 27);
   font-weight: bold;
+}
+
+span.lock-email {
+  font-size: 12px;
 }

@@ -1,17 +1,24 @@
 import { Injectable } from '@angular/core';
 import { User, UserForAuth } from '../models/user';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  private user$$ = new BehaviorSubject<UserForAuth | null>(null);
+  private user$$ = new BehaviorSubject<UserForAuth | null>(
+    JSON.parse(localStorage.getItem('[user]') || 'null')
+  );
   private user$ = this.user$$.asObservable();
 
-  USER_KEY = '[user]';
-  user: UserForAuth | null = null;
+  private userRole$$ = new BehaviorSubject<string>(
+    localStorage.getItem('[role]') || ''
+  );
+  userRole$ = this.userRole$$.asObservable();
+
+  user: UserForAuth | null = this.user$$.value;
+  userRole: string = this.userRole$$.value;
 
   get isLogged(): boolean {
     return !!this.user;
@@ -21,12 +28,25 @@ export class UserService {
     this.user$.subscribe((user) => {
       this.user = user;
     });
+    this.userRole$.subscribe((role) => {
+      this.userRole = role;
+    });
   }
 
   login(email: string, password: string) {
     return this.http
       .post<UserForAuth>('/api/auth/login', { email, password })
-      .pipe(tap((user) => this.user$$.next(user)));
+      .pipe(
+        tap((user) => {
+          this.user$$.next(user);
+          localStorage.setItem('[user]', JSON.stringify(user));
+          this.getLoggedUserRole().subscribe((role) => {
+            this.userRole$$.next(role);
+            localStorage.setItem('[role]', role);
+            console.log('Login successful.');
+          });
+        })
+      );
   }
 
   logout() {
@@ -36,6 +56,9 @@ export class UserService {
         next: () => {
           this.user = null;
           this.user$$.next(null);
+          this.userRole$$.next('');
+          localStorage.removeItem('[user]');
+          localStorage.removeItem('[role]');
           console.log('Logout successful.');
         },
         error: (err) => {
@@ -61,7 +84,14 @@ export class UserService {
   }
 
   getLoggedUserRole(): Observable<string> {
-    return this.http.get<string>('/api/auth/role', { withCredentials: true });
+    return this.http
+      .get<{ role: string }>('/api/auth/role', { withCredentials: true })
+      .pipe(
+        map((response) => {
+          this.userRole = response.role;
+          return response.role;
+        })
+      );
   }
 
   editManager() {}

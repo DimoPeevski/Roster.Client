@@ -12,6 +12,7 @@
   background-color: #fff;
   border-radius: 12px;
   padding: 20px;
+  transition: transform 0.5s;
   box-shadow: 0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.13),
     0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.11);
   min-width: 300px;
@@ -20,6 +21,10 @@
   flex-grow: 1;
   flex-basis: 300px;
   box-sizing: border-box;
+}
+
+.profile-card:hover {
+  transform: translateY(-1.5mm);
 }
 
 @media screen and (min-width: 900px) {

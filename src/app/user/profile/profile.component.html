@@ -6,7 +6,9 @@
             <div class="profile-card-left">
                 <img [src]="userProfile?.profilePictureUrl" class="avatar" alt="Manager Avatar" />
             </div>
+            @if(isEditMode) {
 
+            }
             <div class="profile-card-right">
                 <div id="employee-experience-level" class="exp-level-label">
                     @if(role === 'Manager') {
@@ -16,12 +18,12 @@
                     }
                 </div>
 
-                <div id="employee-names" class="card-box-title">
+                <div *ngIf="!isEditMode" id="employee-names" class="card-box-title">
                     {{ userProfile!.firstName | truncate:17 }} {{ userProfile!.lastName | truncate:17 }}
 
                     <div id="employee-start-date" class="card-box-text">
                         <span class="card-entity">Register Date: </span>
-                        {{ userProfile?.registrationDate| date:'dd MMM yyyy'}}
+                        {{ userProfile?.registrationDate | date:'dd MMM yyyy' }}
                     </div>
                     <div id="employee-team" class="card-box-text">
                         <span class="card-entity">E-mail:</span> {{ userProfile?.email }}
@@ -31,7 +33,7 @@
                     </div>
                 </div>
 
-                <form class="add-employee-form" #form="ngForm" (ngSubmit)="editProfile(form)">
+                <form *ngIf="isEditMode" class="add-employee-form" #form="ngForm" (ngSubmit)="editProfile(form)">
 
                     <div class="custom-form-floating">
                         <label for="firstName">First Name:</label>
@@ -57,24 +59,22 @@
                     </div>
 
                     <div class="custom-form-floating">
-                        <label for="phoneNumber">E-mail:</label>
+                        <label for="phoneNumber">Phone Number:</label>
                         <input class="custom-input" id="phoneNumber" name="phoneNumber"
                             [(ngModel)]="userProfile!.phoneNumber" required />
                     </div>
 
-                    @if(isEditMode) {
                     <div class="add-buttons">
                         <button class="button-clean" (click)="cancelEdit()">Cancel</button>
                         <button class="button-main" [disabled]="form.invalid"
                             [ngClass]="{ 'disabled': form.invalid }">Save</button>
                     </div>
-                    }
-                    @else if (!isEditMode) {
-                    <div class="add-buttons">
-                        <button class="button-main" (click)="changeEditMode()">Edit</button>
-                    </div>
-                    }
                 </form>
+
+                <div class="add-buttons" *ngIf="!isEditMode">
+                    <button class="button-main" (click)="changeEditMode()">Edit</button>
+                </div>
+
             </div>
 
         </div>

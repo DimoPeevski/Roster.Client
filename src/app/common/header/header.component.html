@@ -9,7 +9,9 @@
     @if (isLoggedIn) {
     <div class="header-nav">
       <div class="header-buttons">
+        @if(userRole === 'Admin') {
         <a class="btn btn-primary button-clean" routerLink="/add-manager">Add Manager</a>
+        }
         <a class="btn btn-primary button-main" routerLink="/add-employee">Add Employee</a>
       </div>
       <div class="avatar-dropdown">

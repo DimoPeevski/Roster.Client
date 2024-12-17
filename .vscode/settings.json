@@ -3,7 +3,7 @@
         "node_modules{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "",
+    "appService.defaultWebAppToDeploy": "/subscriptions/3112f183-369d-4012-acb0-bd4858ecfea3/resourceGroups/RosterResourceGroup/providers/Microsoft.Web/sites/Roster-Client",
     "appService.deploySubpath": "dist\\roster.client\\browser",
     "appService.showBuildDuringDeployPrompt": false
 }
