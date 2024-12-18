@@ -135,10 +135,6 @@ span.card-entity {
   outline: none;
 }
 
-.custom-profile-input:focus {
-  background-color: #fafafa;
-}
-
 .edit-profile-form {
   display: flex;
   flex-direction: column;

@@ -18,7 +18,14 @@
         <img [src]="profileAvatar" alt="Avatar" class="avatar" href="#" />
         <div id="dropdownAvatar" class="dropdown-content">
           <a routerLink="/profile">Profile</a>
-          <a href="/404">Settings</a>
+          <a routerLink="/settings">Settings</a>
+
+          <label for="theme">Medical Insurance:</label>
+          <select (change)="onThemeChange($event)" class="custom-input" name="theme" required aria-label="Select Theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+          </select>
+
           <a routerLink="/logout">Logout</a>
         </div>
       </div>
