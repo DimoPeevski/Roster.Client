@@ -35,11 +35,12 @@
                         <span class="card-entity">E-mail:</span> {{ userProfile?.email }}
                     </div>
                     <div id="current-salary" class="card-box-text">
-                        <span class="card-entity">Phone Number:</span> {{ userProfile?.phoneNumber }}
+                        <span class="card-entity">Phone:</span> {{ userProfile?.phoneNumber }}
                     </div>
                 </div>
 
-                <form *ngIf="isEditMode" class="edit-profile-form" #form="ngForm" (ngSubmit)="editProfile(form)">
+                <form *ngIf="isEditMode" class="edit-profile-form" #editProfileForm="ngForm"
+                    (ngSubmit)="editProfile(editProfileForm)">
 
                     <div class="custom-form-floating">
                         <label for="firstName">First Name:</label>
@@ -66,15 +67,15 @@
                     </div>
 
                     <div class="custom-form-floating">
-                        <label for="phoneNumber">Phone Number:</label>
+                        <label for="phoneNumber">Phone:</label>
                         <input class="custom-profile-input" id="phoneNumber" name="phoneNumber"
                             [(ngModel)]="userProfile!.phoneNumber" required />
                     </div>
 
                     <div class="form-buttons">
                         <button class="button-clean" (click)="cancelEdit()">Cancel</button>
-                        <button class="button-main" [disabled]="form.invalid"
-                            [ngClass]="{ 'disabled': form.invalid }">Save</button>
+                        <button class="button-main" [disabled]="editProfileForm.invalid"
+                            [ngClass]="{ 'disabled': editProfileForm.invalid }">Save</button>
                     </div>
                 </form>
 

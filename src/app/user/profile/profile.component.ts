@@ -3,8 +3,8 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { User } from '../../models/user';
-import { TruncatePipe } from '../../shared/truncate.pipe';
+import { ManagerProfile, User } from '../../models/user';
+import { TruncatePipe } from '../../shared/truncate/truncate.pipe';
 
 @Component({
   selector: 'app-profile',
@@ -45,8 +45,27 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  editProfile(form: NgForm) {
-    return;
+  editProfile(editProfileForm: NgForm): void {
+    if (editProfileForm.invalid) {
+      console.error('Invalid form!');
+      return;
+    }
+
+    const { firstName, lastName, email, phoneNumber, registerDate } =
+      editProfileForm.value;
+
+    const formUser: ManagerProfile = {
+      id: this.userProfile!.id,
+      firstName,
+      lastName,
+      registrationDate: registerDate,
+      email: email,
+      phoneNumber: phoneNumber,
+    };
+
+    this.userService.editManager(formUser).subscribe(() => {
+      this.router.navigate(['/profile']);
+    });
   }
 
   changeEditMode() {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { User, UserForAuth } from '../models/user';
+import { ManagerProfile, User, UserForAuth } from '../models/user';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 
@@ -94,6 +94,9 @@ export class UserService {
       );
   }
 
-  editManager() {}
+  editManager(user: ManagerProfile): Observable<void> {
+    return this.http.put<void>(`/api/auth/users/${user.id}`, user);
+  }
+
   deleteManager() {}
 }
