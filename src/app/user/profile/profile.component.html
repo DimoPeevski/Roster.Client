@@ -1,15 +1,20 @@
 <div class="body-container box-extender">
     <div class="inner-wrapper">
-        <h2 class="component-title">My Profile</h2>
-        <div class="card-container">
 
+        @if (!isEditMode) {
+        <div class="edit-button">
+            <img src="https://cdn.peevski.net/images/roster/edit-profile.png" width="26" height="26"
+                alt="Edit Roster Profile" (click)="changeEditMode()">
+        </div>
+        }
+
+        <div class="card-container">
             <div class="profile-card-left">
                 <img [src]="userProfile?.profilePictureUrl" class="avatar" alt="Manager Avatar" />
             </div>
-            @if(isEditMode) {
 
-            }
             <div class="profile-card-right">
+                @if(!isEditMode) {
                 <div id="employee-experience-level" class="exp-level-label">
                     @if(role === 'Manager') {
                     <span class="exp-level-text">👨🏻‍💼 MANAGER</span>
@@ -17,9 +22,10 @@
                     <span class="exp-level-text">🛡️ ADMIN</span>
                     }
                 </div>
+                }
 
                 <div *ngIf="!isEditMode" id="employee-names" class="card-box-title">
-                    {{ userProfile!.firstName | truncate:17 }} {{ userProfile!.lastName | truncate:17 }}
+                    {{ userProfile!.firstName | truncate:20 }} {{ userProfile!.lastName | truncate:20 }}
 
                     <div id="employee-start-date" class="card-box-text">
                         <span class="card-entity">Register Date: </span>
@@ -33,47 +39,45 @@
                     </div>
                 </div>
 
-                <form *ngIf="isEditMode" class="add-employee-form" #form="ngForm" (ngSubmit)="editProfile(form)">
+                <form *ngIf="isEditMode" class="edit-profile-form" #form="ngForm" (ngSubmit)="editProfile(form)">
 
                     <div class="custom-form-floating">
                         <label for="firstName">First Name:</label>
-                        <input class="custom-input" id="firstName" name="firstName" [(ngModel)]="userProfile!.firstName"
-                            required minlength="1" />
+                        <input class="custom-profile-input" id="firstName" name="firstName"
+                            [(ngModel)]="userProfile!.firstName" required minlength="1" />
                     </div>
 
                     <div class="custom-form-floating">
                         <label for="lastName">Last Name:</label>
-                        <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="userProfile!.lastName"
-                            required minlength="1" />
+                        <input class="custom-profile-input" id="lastName" name="lastName"
+                            [(ngModel)]="userProfile!.lastName" required minlength="1" />
                     </div>
 
                     <div class="custom-form-floating">
                         <label for="registerDate">Register Date:</label>
-                        <input class="custom-input" id="registerDate" type="date" name="registerDate"
-                            [(ngModel)]="userProfile!.registrationDate" required />
+                        <input class="custom-profile-input" id="registerDate" type="date" name="registerDate"
+                            [(ngModel)]="formDate" required />
                     </div>
 
                     <div class="custom-form-floating">
                         <label for="email">E-mail:</label>
-                        <input class="custom-input" id="email" name="email" [(ngModel)]="userProfile!.email" required />
+                        <input class="custom-profile-input" id="email" name="email" [(ngModel)]="userProfile!.email"
+                            required />
                     </div>
 
                     <div class="custom-form-floating">
                         <label for="phoneNumber">Phone Number:</label>
-                        <input class="custom-input" id="phoneNumber" name="phoneNumber"
+                        <input class="custom-profile-input" id="phoneNumber" name="phoneNumber"
                             [(ngModel)]="userProfile!.phoneNumber" required />
                     </div>
 
-                    <div class="add-buttons">
+                    <div class="form-buttons">
                         <button class="button-clean" (click)="cancelEdit()">Cancel</button>
                         <button class="button-main" [disabled]="form.invalid"
                             [ngClass]="{ 'disabled': form.invalid }">Save</button>
                     </div>
                 </form>
 
-                <div class="add-buttons" *ngIf="!isEditMode">
-                    <button class="button-main" (click)="changeEditMode()">Edit</button>
-                </div>
 
             </div>
 

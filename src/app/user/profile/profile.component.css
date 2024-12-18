@@ -6,39 +6,27 @@
 
 .inner-wrapper {
   width: 1100px;
-  min-height: 600px;
+  display: flex;
+  flex-direction: column;
   border: solid 1px #e1e1e1;
   border-radius: 12px;
 }
 
 .card-container {
-  padding: 10px 70px 70px 70px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   background-color: #ffffff;
-  width: 700px;
-  min-height: 500px;
-  border: solid 1px #e1e1e1;
+  min-width: 650px;
+  min-height: 350px;
   border-radius: 12px;
   padding: 20px;
-  box-shadow: 0 0.1875rem 0.4375rem 0 rgba(0, 0, 0, 0.13),
-    0 0.0625rem 0.125rem 0 rgba(0, 0, 0, 0.11);
-  margin: 0 auto;
   box-sizing: border-box;
 }
 
-.component-title {
-  margin-top: 50px;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 28px;
-  font-weight: 500;
-}
-
 .card-box-title {
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 500;
   margin-bottom: 20px;
 }
@@ -49,22 +37,17 @@
 
 .exp-level-label {
   display: flex;
-  align-items: flex-end;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: bold;
   color: #6b5f00;
 }
 
 .profile-card-left {
-  display: flex;
-  flex-direction: column;
-  margin-right: 30px;
+  margin-right: 50px;
 }
 
 .profile-card-right {
-  display: flex;
-  flex-direction: column;
-  margin-left: 30px;
+  margin-left: 50px;
 }
 
 .card-box-text {
@@ -75,6 +58,92 @@
 span.card-entity {
   color: rgb(27, 27, 27);
   font-weight: bold;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.edit-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.button-main {
+  width: 30%;
+  margin: 10px;
+  padding: 0.3rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #108a00;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-clean {
+  width: 30%;
+  margin: 10px;
+  padding: 0.3rem;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #108a00;
+  border: 2px solid #108a00;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-main:hover {
+  background-color: #00aa27;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-clean:hover {
+  background-color: #f7f7f7;
+}
+
+.custom-form-floating {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.custom-profile-input {
+  min-width: 200px;
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 16px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+
+.custom-profile-input:focus {
+  background-color: #fafafa;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 @media screen and (min-width: 900px) {
@@ -93,71 +162,4 @@ span.card-entity {
   .profile-card {
     width: 98%;
   }
-}
-
-.avatar {
-  border-radius: 50%;
-  height: 200px;
-  width: 200px;
-  margin: 20px;
-}
-
-.add-buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  width: 100%;
-  margin-top: 20px;
-}
-
-.button-main {
-  width: 40%;
-  margin: 15px;
-  padding: 0.8rem;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #108a00;
-  border: none;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.button-main:hover {
-  background-color: #00aa27;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.button-clean {
-  width: 40%;
-  margin: 15px;
-  padding: 0.8rem;
-  font-size: 1rem;
-  background-color: #fff;
-  color: #108a00;
-  border: 2px solid #108a00;
-  border-radius: 0.3rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.button-clean:hover {
-  background-color: #f7f7f7;
-}
-
-.custom-form-floating {
-  position: relative;
-  margin-bottom: 15px;
-}
-
-.custom-input {
-  width: 35%;
-  padding: 0.8rem 0.5rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border: 1px solid #ccc;
-  border-radius: 0.3rem;
-  background-color: #fdfdfd;
-  outline: none;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }

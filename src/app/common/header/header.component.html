@@ -15,7 +15,7 @@
         <a class="btn btn-primary button-main" routerLink="/add-employee">Add Employee</a>
       </div>
       <div class="avatar-dropdown">
-        <img src="https://cdn.peevski.net/images/roster/avatar-default.jpg" alt="Avatar" class="avatar" href="#" />
+        <img [src]="profileAvatar" alt="Avatar" class="avatar" href="#" />
         <div id="dropdownAvatar" class="dropdown-content">
           <a routerLink="/profile">Profile</a>
           <a href="/404">Settings</a>

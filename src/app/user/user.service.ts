@@ -74,7 +74,7 @@ export class UserService {
   }
 
   getProfileCard() {
-    return this.http.get<User>('/api/auth/profile', { withCredentials: false });
+    return this.http.get<User>('/api/auth/profile', { withCredentials: true });
   }
 
   addManager(email: string, password: string, rePassword: string) {

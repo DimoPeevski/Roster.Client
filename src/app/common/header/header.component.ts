@@ -15,11 +15,20 @@ export class HeaderComponent implements OnInit {
   }
 
   userRole: string = '';
+  profileAvatar: string = '';
 
   constructor(private userService: UserService) {}
   ngOnInit(): void {
     this.userService.userRole$.subscribe((role) => {
       this.userRole = role;
+
+      if (role === 'Admin') {
+        this.profileAvatar =
+          'https://cdn.peevski.net/images/roster/avatar-admin.jpg';
+      } else {
+        this.profileAvatar =
+          'https://cdn.peevski.net/images/roster/avatar-manager.jpg';
+      }
     });
   }
 }

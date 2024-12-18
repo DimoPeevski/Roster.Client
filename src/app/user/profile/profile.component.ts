@@ -17,6 +17,7 @@ export class ProfileComponent implements OnInit {
   userProfile: User | null = null;
   role: String | null = null;
   isEditMode: boolean = false;
+  formDate: string = '';
 
   constructor(private userService: UserService, private router: Router) {}
 
@@ -25,11 +26,12 @@ export class ProfileComponent implements OnInit {
       next: (userProfile) => {
         if (userProfile) {
           this.userProfile = userProfile;
-
+          this.formDate = this.formatDateForInput(
+            new Date(userProfile.registrationDate)
+          );
           this.userService.getLoggedUserRole().subscribe({
             next: (role) => {
               this.role = role;
-              console.log(role);
             },
             error: (error) => {
               console.error('Error fetching user role:', error);
@@ -53,5 +55,19 @@ export class ProfileComponent implements OnInit {
 
   cancelEdit() {
     this.isEditMode = false;
+  }
+
+  private formatDateForBackend(date: string): string {
+    const d = new Date(date);
+    return `${d.getFullYear()}-${('0' + (d.getMonth() + 1)).slice(-2)}-${(
+      '0' + d.getDate()
+    ).slice(-2)} 00:00:00.0000000`;
+  }
+
+  private formatDateForInput(date: Date): string {
+    const year = date.getFullYear();
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day = ('0' + date.getDate()).slice(-2);
+    return `${year}-${month}-${day}`;
   }
 }
