@@ -1,0 +1,17 @@
+.notification {
+  position: fixed;
+  z-index: 10;
+  right: 50%;
+  top: 12%;
+  padding: 0.5rem;
+  background-color: rgba(255, 70, 70, 0.75);
+  border-radius: 8px;
+}
+
+.error-message {
+  background-color: rgba(255, 70, 70, 0.75);
+}
+
+.sucess-message {
+  background-color: rgba(125, 255, 39, 0.75);
+}

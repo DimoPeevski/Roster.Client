@@ -10,6 +10,7 @@ import { ListEmployeesComponent } from './employees/list-employees/list-employee
 import { ProfileComponent } from './user/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
 import { LoginGuard } from './guards/login.guard';
+import { ErrorMessageComponent } from './shared/error-message/error-message.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
@@ -45,6 +46,7 @@ export const routes: Routes = [
   //End - Employee and manager routing
 
   //Start - Error 404 routing
+  { path: 'error', component: ErrorMessageComponent },
   { path: '404', component: ErrorComponent },
   { path: '**', redirectTo: '/404' },
   //End - Error 404 routing
