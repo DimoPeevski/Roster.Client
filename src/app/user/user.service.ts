@@ -49,7 +49,7 @@ export class UserService {
       );
   }
 
-  logout() {
+  logout(onSuccess: () => void): void {
     this.http
       .post('/api/auth/logout', {}, { withCredentials: true })
       .subscribe({
@@ -59,7 +59,10 @@ export class UserService {
           this.userRole$$.next('');
           localStorage.removeItem('[user]');
           localStorage.removeItem('[role]');
+
           console.log('Logout successful.');
+
+          onSuccess();
         },
         error: (err) => {
           console.error('Logout error:', err);
@@ -98,5 +101,7 @@ export class UserService {
     return this.http.put<void>(`/api/auth/users/${user.id}`, user);
   }
 
-  deleteManager() {}
+  deleteManager() {
+    //
+  }
 }

@@ -11,29 +11,24 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot): boolean {
     const isLoggedIn = this.userService.isLogged;
     const userRole = this.userService.userRole;
+    const requestedPath = route.routeConfig?.path;
 
-    if (route.routeConfig?.path === 'login' && isLoggedIn) {
-      console.log(
-        'AuthGuard: Redirecting logged-in user from /login to homepage'
-      );
-      this.router.navigate(['/']);
+    // Redirect unauthenticated users from protected routes to /login
+    if (!isLoggedIn) {
+      console.log('AuthGuard: User not logged-in. Redirecting to /login');
+      this.router.navigate(['/login']);
       return false;
     }
 
-    if (route.routeConfig?.path === 'add-manager' && userRole === 'Manager') {
+    // Restrict managers from accessing /add-manager
+    if (requestedPath === 'add-manager' && userRole === 'Manager') {
       console.log(
-        'AuthGuard: Managers cannot access /add-manager, redirecting...'
+        'AuthGuard: Managers cannot access /add-manager. Redirecting...'
       );
-      this.router.navigate(['/']);
+      this.router.navigate(['/employees']);
       return false;
     }
 
-    if (isLoggedIn) {
-      return true;
-    }
-
-    console.log('AuthGuard: User is not logged in, redirecting to /login');
-    this.router.navigate(['/login']);
-    return false;
+    return true;
   }
 }

@@ -9,13 +9,14 @@ import { ErrorComponent } from './error/error.component';
 import { ListEmployeesComponent } from './employees/list-employees/list-employees.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { AuthGuard } from './guards/auth.guard';
+import { LoginGuard } from './guards/login.guard';
 
 export const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: '', component: ListEmployeesComponent, canActivate: [AuthGuard] },
 
   //Start - User routing
-  { path: 'login', component: LoginComponent, canActivate: [] },
+  { path: 'login', component: LoginComponent, canActivate: [LoginGuard] },
   { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard] },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
   //End- User routing

@@ -1,23 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-logout',
   standalone: true,
-  imports: [],
   templateUrl: './logout.component.html',
-  styleUrl: './logout.component.css',
+  styleUrls: ['./logout.component.css'],
 })
-export class LogoutComponent {
-  constructor(private userServer: UserService, private router: Router) {}
+export class LogoutComponent implements OnDestroy {
+  private logoutSubscription: Subscription = new Subscription();
 
-  logout() {
-    this.userServer.logout();
-    this.router.navigate(['/login']);
+  constructor(private userService: UserService, private router: Router) {}
+
+  logout(): void {
+    const logoutSub = this.userService.logout(() => {
+      this.router.navigate(['/login']);
+    });
+
+    this.logoutSubscription.add(logoutSub);
   }
 
-  cancelLogout() {
+  cancelLogout(): void {
     this.router.navigate(['/']);
+  }
+
+  ngOnDestroy(): void {
+    this.logoutSubscription.unsubscribe(); // Clean up the logout subscription
   }
 }
