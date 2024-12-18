@@ -27,6 +27,6 @@ export class LogoutComponent implements OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.logoutSubscription.unsubscribe(); // Clean up the logout subscription
+    this.logoutSubscription.unsubscribe();
   }
 }

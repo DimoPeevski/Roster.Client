@@ -12,7 +12,6 @@ export class LoginGuard implements CanActivate {
     const isLoggedIn = this.userService.isLogged;
     const requestedPath = route.routeConfig?.path;
 
-    // Restrict logged-in users to access /login page
     if (requestedPath === 'login' && isLoggedIn) {
       console.log(
         'AuthGuard: Logged-in users cannot access /login. Redirecting...'
