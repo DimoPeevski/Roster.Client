@@ -3,23 +3,123 @@
         <h2 class="component-title">Add Employee</h2>
         <div class="login-container">
             <form class="add-employee-form" #form="ngForm" (ngSubmit)="addEmployee(form)">
+
                 <div class="custom-form-floating">
+
                     <label for="firstName">First Name:</label>
                     <input class="custom-input" id="firstName" name="firstName" [(ngModel)]="employee.firstName"
-                        required minlength="2" />
+                        minlength="2" required appName />
+
+                    @if (form.controls['firstName'].touched) {
+                    <div class="error-container">
+                        @if (form.controls['firstName'].hasError('required')) {
+                        <p class="validation-error">
+                            First name is required!
+                        </p>
+                        }
+                        @if (form.controls['firstName'].hasError('minlength')) {
+                        <p class="validation-error">
+                            First name must be at least 2 characters long.
+                        </p>
+                        }
+                        @if (form.controls['firstName'].hasError('maxlenght')) {
+                        <p class="validation-error">
+                            First name must be less than 100 characters long.
+                        </p>
+                        }
+                        @if (form.controls['firstName'].hasError('namesValidator')) {
+                        <p class="validation-error">
+                            First name is invalid or contains prohibited characters.
+                        </p>
+                        }
+                    </div>
+                    }
+
 
                     <label for="lastName">Last Name:</label>
-                    <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="employee.lastName" required
-                        minlength="2" />
+                    <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="employee.lastName"
+                        minlength="2" maxlength="100" required appName />
+
+                    @if (form.controls['lastName'].touched) {
+                    <div class="error-container">
+                        @if (form.controls['lastName'].hasError('required')) {
+                        <p class="validation-error">
+                            Last name is required!
+                        </p>
+                        }
+                        @if (form.controls['lastName'].hasError('minlength')) {
+                        <p class="validation-error">
+                            Last name must be at least 2 characters long.
+                        </p>
+                        }
+                        @if (form.controls['lastName'].hasError('maxlenght')) {
+                        <p class="validation-error">
+                            Last name must be less than 100 characters long.
+                        </p>
+                        }
+                        @if (form.controls['lastName'].hasError('namesValidator')) {
+                        <p class="validation-error">
+                            Last name is invalid or contains prohibited characters.
+                        </p>
+                        }
+                    </div>
+                    }
+
                 </div>
 
-                <div class="form-group custom-form-floating">
+                <div class="custom-form-floating">
+
                     <label for="team">Team:</label>
-                    <input class="custom-input" id="team" name="team" [(ngModel)]="employee.team" required />
+                    <input class="custom-input" id="team" name="team" [(ngModel)]="employee.team" minlength="2"
+                        maxlength="50" required appName />
+
+                    @if (form.controls['team'].touched) {
+                    <div class="error-container">
+                        @if (form.controls['team'].hasError('required')) {
+                        <p class="validation-error">
+                            Team is required!
+                        </p>
+                        }
+                        @if (form.controls['team'].hasError('minlength')) {
+                        <p class="validation-error">
+                            Team must be at least 2 characters long.
+                        </p>
+                        }
+                        @if (form.controls['team'].hasError('maxlenght')) {
+                        <p class="validation-error">
+                            Team must be less than 50 characters long.
+                        </p>
+                        }
+                        @if (form.controls['team'].hasError('namesValidator')) {
+                        <p class="validation-error">
+                            Team is invalid or contains prohibited characters.
+                        </p>
+                        }
+                    </div>
+                    }
 
                     <label for="salary">Current Salary:</label>
                     <input class="custom-input" type="number" id="salary" name="salary" [(ngModel)]="employee.salary"
-                        required />
+                        min="1" max="1000000" required />
+
+                    @if (form.controls['salary'].touched) {
+                    <div class="error-container">
+                        @if (form.controls['salary'].hasError('required')) {
+                        <p class="validation-error">
+                            Salary is required!
+                        </p>
+                        }
+                        @if (form.controls['salary'].value <= 0) { <p class="validation-error">
+                            Salary must be greater than 0.
+                            </p>
+                            }
+                            @if (form.controls['salary'].value > 1000000) {
+                            <p class="validation-error">
+                                Salary must be less or equal to 9,999,999.
+                            </p>
+                            }
+                    </div>
+                    }
 
                     <label for="verifiedExperienceLevel">Verified Skills:</label>
                     <select class="custom-input" id="verifiedExperienceLevel" name="verifiedExperienceLevel"
@@ -29,7 +129,7 @@
                     </select>
                 </div>
 
-                <div class="form-group custom-form-floating">
+                <div class="custom-form-floating">
                     <label for="salaryLastRaise">Last Salary Raise:</label>
                     <input class="custom-input" type="date" id="salaryLastRaise" name="salaryLastRaise"
                         [(ngModel)]="employee.salaryLastRaise" required [value]="today" />
@@ -37,6 +137,26 @@
                     <label for="paidLeave">Paid Leave (days):</label>
                     <input class="custom-input" type="number" id="paidLeave" name="paidLeave"
                         [(ngModel)]="employee.paidLeave" required min="0" max="365" value="22" />
+
+                    @if (form.controls['paidLeave'].touched) {
+                    <div class="error-container">
+                        @if
+                        (form.controls['paidLeave'].hasError('required')) {
+                        <p class="validation-error">
+                            Paid leave is required!
+                        </p>
+                        }
+                        @if (form.controls['paidLeave'].value < 0) { <p class="validation-error">
+                            Paid leave must be greater or equal to 0.
+                            </p>
+                            }
+                            @if (form.controls['salary'].value > 365) {
+                            <p class="validation-error">
+                                Paid leave must be less or equal to 365.
+                            </p>
+                            }
+                    </div>
+                    }
 
                     <label for="medicalInsurance">Medical Insurance:</label>
                     <select class="custom-input" id="medicalInsurance" name="medicalInsurance"

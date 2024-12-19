@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '../../user/user.service';
-import { AppComponent } from '../../app.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, FormsModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
 })
@@ -15,14 +15,19 @@ export class HeaderComponent implements OnInit {
     return this.userService.isLogged;
   }
 
+  selectedTheme: string = 'light';
   userRole: string = '';
   profileAvatar: string = '';
 
   constructor(private userService: UserService) {}
 
   setTheme(theme: string) {
-    document.body.className = theme;
+    const appHeader = document.querySelector('.app-header');
+    if (appHeader) {
+      appHeader.className = `app-header ${theme}`;
+    }
     localStorage.setItem('theme', theme);
+    this.selectedTheme = theme;
   }
 
   onThemeChange(event: Event) {
@@ -44,7 +49,10 @@ export class HeaderComponent implements OnInit {
 
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-      this.setTheme(savedTheme);
+      this.selectedTheme = savedTheme;
+      this.setTheme(this.selectedTheme);
+    } else {
+      this.setTheme(this.selectedTheme);
     }
   }
 }

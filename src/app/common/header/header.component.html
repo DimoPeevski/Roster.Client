@@ -20,11 +20,14 @@
           <a routerLink="/profile">Profile</a>
           <a routerLink="/settings">Settings</a>
 
-          <label for="theme">Medical Insurance:</label>
-          <select (change)="onThemeChange($event)" class="custom-input" name="theme" required aria-label="Select Theme">
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-          </select>
+          <div class="select-theme">
+            <select (change)="onThemeChange($event)" class="custom-input" name="theme" required
+              aria-label="Select Theme" [(ngModel)]="selectedTheme">
+              <option value="light">Theme: Light</option>
+              <option value="dark">Theme: Dark</option>
+            </select>
+
+          </div>
 
           <a routerLink="/logout">Logout</a>
         </div>

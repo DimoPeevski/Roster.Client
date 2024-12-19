@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
 import { CommonModule } from '@angular/common';
 import { Employee } from '../../models/employee';
+import { NamesDirective } from '../../directives/name.directive';
 
 @Component({
   selector: 'app-add-employee',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, NamesDirective, CommonModule],
   templateUrl: './add-employee.component.html',
   styleUrls: ['./add-employee.component.css'],
 })

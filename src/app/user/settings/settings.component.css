@@ -1,0 +1,161 @@
+.box-extender {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-wrapper {
+  width: 1100px;
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #e1e1e1;
+  border-radius: 12px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  min-width: 650px;
+  min-height: 350px;
+  border-radius: 12px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card-box-title {
+  font-size: 40px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#employee-start-date {
+  margin-top: 30px;
+}
+
+.exp-level-label {
+  display: flex;
+  font-size: 12px;
+  font-weight: bold;
+  color: #6b5f00;
+}
+
+.profile-card-left {
+  margin-right: 50px;
+}
+
+.profile-card-right {
+  margin-left: 50px;
+}
+
+.card-box-text {
+  margin: 2px 0;
+  font-size: 16px;
+}
+
+span.card-entity {
+  color: rgb(27, 27, 27);
+  font-weight: bold;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 200px;
+  width: 200px;
+}
+
+.edit-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-top: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.form-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.button-main {
+  width: 30%;
+  margin: 10px;
+  padding: 0.3rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #108a00;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-clean {
+  width: 30%;
+  margin: 10px;
+  padding: 0.3rem;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #108a00;
+  border: 2px solid #108a00;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-main:hover {
+  background-color: #00aa27;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.button-clean:hover {
+  background-color: #f7f7f7;
+}
+
+.custom-form-floating {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.custom-profile-input {
+  min-width: 200px;
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 16px;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+@media screen and (min-width: 900px) {
+  .profile-card {
+    width: 30%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .profile-card {
+    width: 48%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .profile-card {
+    width: 98%;
+  }
+}
