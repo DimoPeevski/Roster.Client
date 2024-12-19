@@ -5,46 +5,163 @@
 
             @if(employee) {
             <form class="add-employee-form" #editEmployeeForm="ngForm" (ngSubmit)="editEmployee(editEmployeeForm)">
+
                 <div class="custom-form-floating">
+
                     <label for="firstName">First Name:</label>
                     <input class="custom-input" id="firstName" name="firstName" [(ngModel)]="employee.firstName"
-                        minlength="2" required aria-label="First Name" />
+                        minlength="2" required appName />
+
+                    @if (editEmployeeForm.controls['firstName'].touched) {
+                    <div class="error-container">
+                        @if (editEmployeeForm.controls['firstName'].hasError('required')) {
+                        <p class="validation-error">
+                            First name is required!
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['firstName'].hasError('minlength')) {
+                        <p class="validation-error">
+                            First name must be at least 2 characters long.
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['firstName'].hasError('maxlenght')) {
+                        <p class="validation-error">
+                            First name must be less than 100 characters long.
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['firstName'].hasError('namesValidator')) {
+                        <p class="validation-error">
+                            First name is invalid or contains prohibited characters.
+                        </p>
+                        }
+                    </div>
+                    }
 
                     <label for="lastName">Last Name:</label>
                     <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="employee.lastName"
-                        minlength="2" required aria-label="Last Name" />
+                        minlength="2" maxlength="100" required appName />
+
+                    @if (editEmployeeForm.controls['lastName'].touched) {
+                    <div class="error-container">
+                        @if (editEmployeeForm.controls['lastName'].hasError('required')) {
+                        <p class="validation-error">
+                            Last name is required!
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['lastName'].hasError('minlength')) {
+                        <p class="validation-error">
+                            Last name must be at least 2 characters long.
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['lastName'].hasError('maxlenght')) {
+                        <p class="validation-error">
+                            Last name must be less than 100 characters long.
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['lastName'].hasError('namesValidator')) {
+                        <p class="validation-error">
+                            Last name is invalid or contains prohibited characters.
+                        </p>
+                        }
+                    </div>
+                    }
 
                 </div>
 
-                <div class="form-group custom-form-floating">
+                <div class="custom-form-floating">
+
                     <label for="team">Team:</label>
-                    <input class="custom-input" id="team" name="team" [(ngModel)]="employee.team" required
-                        aria-label="Team" />
+                    <input class="custom-input" id="team" name="team" [(ngModel)]="employee.team" minlength="2"
+                        maxlength="50" required appName />
+
+                    @if (editEmployeeForm.controls['team'].touched) {
+                    <div class="error-container">
+                        @if (editEmployeeForm.controls['team'].hasError('required')) {
+                        <p class="validation-error">
+                            Team is required!
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['team'].hasError('minlength')) {
+                        <p class="validation-error">
+                            Team must be at least 2 characters long.
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['team'].hasError('maxlenght')) {
+                        <p class="validation-error">
+                            Team must be less than 50 characters long.
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['team'].hasError('namesValidator')) {
+                        <p class="validation-error">
+                            Team is invalid or contains prohibited characters.
+                        </p>
+                        }
+                    </div>
+                    }
 
                     <label for="salary">Current Salary:</label>
                     <input class="custom-input" type="number" id="salary" name="salary" [(ngModel)]="employee.salary"
-                        required aria-label="Current Salary" />
+                        min="1" max="1000000" required />
+
+                    @if (editEmployeeForm.controls['salary'].touched) {
+                    <div class="error-container">
+                        @if (editEmployeeForm.controls['salary'].hasError('required')) {
+                        <p class="validation-error">
+                            Salary is required!
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['salary'].value <= 0) { <p class="validation-error">
+                            Salary must be greater than 0.
+                            </p>
+                            }
+                            @if (editEmployeeForm.controls['salary'].value > 1000000) {
+                            <p class="validation-error">
+                                Salary must be less or equal to 9,999,999.
+                            </p>
+                            }
+                    </div>
+                    }
 
                     <label for="verifiedExperienceLevel">Verified Skills:</label>
                     <select class="custom-input" id="verifiedExperienceLevel" name="verifiedExperienceLevel"
-                        [(ngModel)]="employee.verifiedExperienceLevel" required aria-label="Verified Skills">
+                        [(ngModel)]="employee.verifiedExperienceLevel" required>
                         <option value="false">No</option>
                         <option value="true">Yes</option>
                     </select>
                 </div>
 
-                <div class="form-group custom-form-floating">
+                <div class="custom-form-floating">
                     <label for="salaryLastRaise">Last Salary Raise:</label>
                     <input class="custom-input" type="date" id="salaryLastRaise" name="salaryLastRaise"
-                        [(ngModel)]="lastSalaryRaise" required aria-label="Last Salary Raise" />
+                        [(ngModel)]="lastSalaryRaise" required />
 
                     <label for="paidLeave">Paid Leave (days):</label>
                     <input class="custom-input" type="number" id="paidLeave" name="paidLeave"
-                        [(ngModel)]="employee.paidLeave" min="0" max="365" required aria-label="Paid Leave" />
+                        [(ngModel)]="employee.paidLeave" required min="0" max="365" value="22" />
+
+                    @if (editEmployeeForm.controls['paidLeave'].touched) {
+                    <div class="error-container">
+                        @if
+                        (editEmployeeForm.controls['paidLeave'].hasError('required')) {
+                        <p class="validation-error">
+                            Paid leave is required!
+                        </p>
+                        }
+                        @if (editEmployeeForm.controls['paidLeave'].value < 0) { <p class="validation-error">
+                            Paid leave must be greater or equal to 0.
+                            </p>
+                            }
+                            @if (editEmployeeForm.controls['paidLeave'].value > 365) {
+                            <p class="validation-error">
+                                Paid leave must be less or equal to 365.
+                            </p>
+                            }
+                    </div>
+                    }
 
                     <label for="medicalInsurance">Medical Insurance:</label>
-                    <select class="custom-input" id="medicalInsurance" name="medicalInsurance" type="bool"
-                        [(ngModel)]="employee.medicalInsurance" required aria-label="Medical Insurance">
+                    <select class="custom-input" id="medicalInsurance" name="medicalInsurance"
+                        [(ngModel)]="employee.medicalInsurance" required>
                         <option value="true">Yes</option>
                         <option value="false">No</option>
                     </select>
@@ -53,7 +170,7 @@
                 <div class="custom-form-floating">
                     <label for="experienceLevel">Experience Level:</label>
                     <select class="custom-input" id="experienceLevel" name="experienceLevel"
-                        [(ngModel)]="employee.experienceLevel" required aria-label="Experience Level">
+                        [(ngModel)]="employee.experienceLevel" required>
                         <option value="Intern">Intern</option>
                         <option value="Junior">Junior</option>
                         <option value="Mid">Mid</option>
@@ -63,7 +180,7 @@
 
                     <label for="startDate">Start Date:</label>
                     <input class="custom-input" type="date" id="startDate" name="startDate" [(ngModel)]="startDate"
-                        required aria-label="Start Date" />
+                        required />
                 </div>
 
                 <div class="add-buttons">

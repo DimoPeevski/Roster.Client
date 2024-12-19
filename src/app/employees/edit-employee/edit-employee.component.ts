@@ -4,11 +4,12 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { Employee } from '../../models/employee';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../employee.service';
+import { NamesDirective } from '../../directives/name.directive';
 
 @Component({
   selector: 'app-edit-employee',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, NamesDirective],
   templateUrl: './edit-employee.component.html',
   styleUrls: ['./edit-employee.component.css'],
 })

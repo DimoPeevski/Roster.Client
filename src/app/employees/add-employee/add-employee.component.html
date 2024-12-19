@@ -35,7 +35,6 @@
                     </div>
                     }
 
-
                     <label for="lastName">Last Name:</label>
                     <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="employee.lastName"
                         minlength="2" maxlength="100" required appName />
@@ -150,7 +149,7 @@
                             Paid leave must be greater or equal to 0.
                             </p>
                             }
-                            @if (form.controls['salary'].value > 365) {
+                            @if (form.controls['paidLeave'].value > 365) {
                             <p class="validation-error">
                                 Paid leave must be less or equal to 365.
                             </p>

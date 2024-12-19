@@ -42,8 +42,12 @@ label {
   margin-bottom: 15px;
 }
 
+.error-container {
+  position: relative;
+}
+
 .custom-input {
-  width: 35%;
+  width: 100%;
   padding: 0.8rem 0.5rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -60,14 +64,19 @@ label {
 
 .custom-input:focus + .custom-label,
 .custom-input:not(:placeholder-shown) + .custom-label {
-  transform: scale(0.9) translateY(-1.2rem);
+  transform: scale(0.8) translateY(-1.3rem);
+}
+
+.custom-input.ng-invalid.ng-touched {
+  box-shadow: 0 0 10px 0.1rem rgba(255, 0, 0, 0.28);
+  border-color: rgba(255, 0, 0, 0.28);
 }
 
 .custom-label {
   position: absolute;
   top: 0.9rem;
   left: 0.5rem;
-  font-size: 1rem;
+  font-size: 14px;
   color: #aaa;
   transition: transform 0.3s ease, color 0.3s ease;
   pointer-events: none;
@@ -89,12 +98,22 @@ label {
   margin: 15px;
   padding: 0.8rem;
   font-size: 1rem;
-  color: #fff;
   background-color: #108a00;
+  color: #fff;
   border: none;
   border-radius: 0.3rem;
   cursor: pointer;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button-main.disabled {
+  background-color: #858585;
+  cursor: not-allowed;
+}
+
+.button-main.disabled:hover {
+  background-color: #858585;
+  cursor: not-allowed;
 }
 
 .button-main:hover {
@@ -117,6 +136,12 @@ label {
 
 .button-clean:hover {
   background-color: #f7f7f7;
+}
+
+p.validation-error {
+  margin-top: 7px;
+  color: rgba(255, 0, 0, 0.75);
+  font-size: 12px;
 }
 
 #firstName,
