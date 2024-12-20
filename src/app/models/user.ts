@@ -18,9 +18,10 @@ export interface ManagerProfile {
   id: string;
   firstName: string;
   lastName: string;
-  registrationDate: Date;
+  registrationDate: string;
   email: string;
   phoneNumber?: string;
+  profilePictureUrl: string;
 }
 
 export interface UserForAuth {

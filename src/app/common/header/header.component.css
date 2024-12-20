@@ -122,10 +122,18 @@
   background-color: #fafafa;
 }
 
-.select-theme {
-  padding-left: 3px;
-}
-
 .custom-input:hover {
   background-color: #f1f1f1;
+}
+
+.select-theme {
+  margin-left: 15.3px;
+  display: flex;
+  flex-direction: column;
+}
+
+#theme-selector {
+  margin-left: 0px;
+  padding-top: 10px;
+  background-color: #fafafa;
 }

@@ -20,17 +20,26 @@
           <a routerLink="/profile">Profile</a>
           <a routerLink="/settings">Settings</a>
 
-          <div class="select-theme">
-            <select (change)="onThemeChange($event)" class="custom-input" name="theme" required
-              aria-label="Select Theme" [(ngModel)]="selectedTheme">
-              <option value="light">Theme: Light</option>
-              <option value="dark">Theme: Dark</option>
-            </select>
+          @if(userRole === 'Admin') {
+          <a routerLink="/settings">My Employees</a>
+          }
+          @if(userRole === 'Manager') {
+          <a routerLink="/settings">My Managers</a>
+          }
 
+
+          <div class="select-theme">
+            <label for="theme-selector">Select theme</label>
+            <select id="theme-selector" (change)="onThemeChange($event)" class="custom-input" name="theme" required
+              aria-label="Select Theme" [(ngModel)]="selectedTheme">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+            </select>
           </div>
 
           <a routerLink="/logout">Logout</a>
         </div>
+
       </div>
     </div>
     }

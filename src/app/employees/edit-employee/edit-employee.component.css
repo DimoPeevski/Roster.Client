@@ -40,10 +40,12 @@ label {
 .custom-form-floating {
   position: relative;
   margin-bottom: 15px;
+  display: flex;
 }
 
-.error-container {
+.input-group {
   position: relative;
+  display: flex;
 }
 
 .custom-input {

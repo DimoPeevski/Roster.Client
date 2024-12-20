@@ -98,10 +98,10 @@ export class UserService {
   }
 
   editManager(user: ManagerProfile): Observable<void> {
-    return this.http.put<void>(`/api/auth/users/${user.id}`, user);
+    return this.http.put<void>(`/api/auth/update/${user.id}`, user);
   }
 
-  deleteManager() {
-    //
+  deleteManager(user: ManagerProfile): Observable<void> {
+    return this.http.put<void>(`/api/auth/delete/${user.id}`, user);
   }
 }

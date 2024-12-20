@@ -8,6 +8,7 @@
 
                 <div class="custom-form-floating">
 
+
                     <label for="firstName">First Name:</label>
                     <input class="custom-input" id="firstName" name="firstName" [(ngModel)]="employee.firstName"
                         minlength="2" required appName />
@@ -24,7 +25,7 @@
                             First name must be at least 2 characters long.
                         </p>
                         }
-                        @if (editEmployeeForm.controls['firstName'].hasError('maxlenght')) {
+                        @if (editEmployeeForm.controls['firstName'].hasError('maxlength')) {
                         <p class="validation-error">
                             First name must be less than 100 characters long.
                         </p>
@@ -36,6 +37,7 @@
                         }
                     </div>
                     }
+
 
                     <label for="lastName">Last Name:</label>
                     <input class="custom-input" id="lastName" name="lastName" [(ngModel)]="employee.lastName"
@@ -53,7 +55,7 @@
                             Last name must be at least 2 characters long.
                         </p>
                         }
-                        @if (editEmployeeForm.controls['lastName'].hasError('maxlenght')) {
+                        @if (editEmployeeForm.controls['lastName'].hasError('maxlength')) {
                         <p class="validation-error">
                             Last name must be less than 100 characters long.
                         </p>
@@ -86,7 +88,7 @@
                             Team must be at least 2 characters long.
                         </p>
                         }
-                        @if (editEmployeeForm.controls['team'].hasError('maxlenght')) {
+                        @if (editEmployeeForm.controls['team'].hasError('maxlength')) {
                         <p class="validation-error">
                             Team must be less than 50 characters long.
                         </p>

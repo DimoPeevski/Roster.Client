@@ -16,6 +16,7 @@ import { TruncatePipe } from '../../shared/truncate/truncate.pipe';
 export class ProfileComponent implements OnInit {
   userProfile: User | null = null;
   role: String | null = null;
+  userProfilePath: string = '';
   isEditMode: boolean = false;
   formDate: string = '';
 
@@ -26,9 +27,11 @@ export class ProfileComponent implements OnInit {
       next: (userProfile) => {
         if (userProfile) {
           this.userProfile = userProfile;
+          this.userProfilePath = userProfile.profilePictureUrl;
           this.formDate = this.formatDateForInput(
             new Date(userProfile.registrationDate)
           );
+
           this.userService.getLoggedUserRole().subscribe({
             next: (role) => {
               this.role = role;
@@ -54,17 +57,22 @@ export class ProfileComponent implements OnInit {
     const { firstName, lastName, email, phoneNumber, registerDate } =
       editProfileForm.value;
 
+    const parsedDate = new Date(registerDate);
+
     const formUser: ManagerProfile = {
       id: this.userProfile!.id,
       firstName,
       lastName,
-      registrationDate: registerDate,
+      registrationDate: this.formatDateForBackend(parsedDate),
       email: email,
       phoneNumber: phoneNumber,
+      profilePictureUrl: this.userProfilePath,
     };
 
     this.userService.editManager(formUser).subscribe(() => {
-      this.router.navigate(['/profile']);
+      this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+        this.router.navigate(['/profile']);
+      });
     });
   }
 
@@ -76,11 +84,8 @@ export class ProfileComponent implements OnInit {
     this.isEditMode = false;
   }
 
-  private formatDateForBackend(date: string): string {
-    const d = new Date(date);
-    return `${d.getFullYear()}-${('0' + (d.getMonth() + 1)).slice(-2)}-${(
-      '0' + d.getDate()
-    ).slice(-2)} 00:00:00.0000000`;
+  private formatDateForBackend(date: Date): string {
+    return date.toISOString();
   }
 
   private formatDateForInput(date: Date): string {

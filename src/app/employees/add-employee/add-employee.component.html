@@ -22,7 +22,7 @@
                             First name must be at least 2 characters long.
                         </p>
                         }
-                        @if (form.controls['firstName'].hasError('maxlenght')) {
+                        @if (form.controls['firstName'].hasError('maxlength')) {
                         <p class="validation-error">
                             First name must be less than 100 characters long.
                         </p>
@@ -51,7 +51,7 @@
                             Last name must be at least 2 characters long.
                         </p>
                         }
-                        @if (form.controls['lastName'].hasError('maxlenght')) {
+                        @if (form.controls['lastName'].hasError('maxlength')) {
                         <p class="validation-error">
                             Last name must be less than 100 characters long.
                         </p>
@@ -84,7 +84,7 @@
                             Team must be at least 2 characters long.
                         </p>
                         }
-                        @if (form.controls['team'].hasError('maxlenght')) {
+                        @if (form.controls['team'].hasError('maxlength')) {
                         <p class="validation-error">
                             Team must be less than 50 characters long.
                         </p>
@@ -139,8 +139,7 @@
 
                     @if (form.controls['paidLeave'].touched) {
                     <div class="error-container">
-                        @if
-                        (form.controls['paidLeave'].hasError('required')) {
+                        @if(form.controls['paidLeave'].hasError('required')) {
                         <p class="validation-error">
                             Paid leave is required!
                         </p>

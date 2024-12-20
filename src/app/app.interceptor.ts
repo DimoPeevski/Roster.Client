@@ -31,3 +31,5 @@ export const appInterceptor: HttpInterceptorFn = (req, next) => {
     })
   );
 };
+
+//check for more errors in the errorcomponent
